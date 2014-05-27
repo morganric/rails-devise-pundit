@@ -29,6 +29,10 @@ class PhotosController < ApplicationController
   def create
     @photo = Photo.new(photo_params)
 
+    @photo.public = true
+    @photo.user_id = current_user.id
+    @photo.views = 0
+
     respond_to do |format|
       if @photo.save
         format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
