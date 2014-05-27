@@ -1,0 +1,32 @@
+<div>
+  <div class="pull-right col-md-4">
+    <%= image_tag @profile.image.url(:square) %>
+
+    <section>
+    <p>
+      <%= link_to @profile.website %>
+    </p>
+    <p>
+      <%= @profile.date_of_birth %>
+    </p>
+    <p>
+      <%= @profile.location %>
+    </p>
+    </section>
+
+  </div>
+  <div class="col-md-8">
+    <h1>
+      <%= @profile.display_name %>
+    </h1>
+
+    <section class= "well">
+      <%= @profile.bio %>
+      <br/>
+      <span class="pull-right">
+      <%= link_to 'Edit', edit_profile_path(@profile) %> 
+      </span>
+      <br/>
+    </section>
+  </div>
+</div>

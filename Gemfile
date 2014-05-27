@@ -19,15 +19,11 @@ gem "therubyracer"
 gem "less-rails"
 gem 'less-rails-bootstrap'
 gem "twitter-bootstrap-rails"
-# twitter bootstrap css & javascript toolkit
-# gem 'twitter-bootswatch-rails', '~> 3.1.1'
-# # twitter bootstrap helpers gem, e.g., alerts etc...
-# gem 'twitter-bootswatch-rails-helpers'
-
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
 group :production do
   gem 'pg'

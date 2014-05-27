@@ -1,13 +1,22 @@
-<h1>
-  <%= @photo.title %>
-</h1>
-<p>
-  <%= image_tag @photo.image.url %>
-</p>
+<div class="clearfix">
+	<h1>
+	  <%= @photo.title %>
+	  <small>
+	  	by <%= link_to @photo.user.profile.display_name, vanity_url_path(@photo.user.name) %>
+	  </small>
+	</h1>
+	<div class="col-md-8 pull-left">
+		<p>
+		  <%= image_tag @photo.image.url(:standard) %>
+		</p>
+	</div>
+	<div class="col-md-4 pull-right">
+		<p class="well">
+		  <%= @photo.description %>
+		  <br/>
+		  <%= link_to 'Edit', edit_photo_path(@photo) %> 
+		</p>
+	</div>
 
-<p class="well">
-  <%= @photo.description %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
