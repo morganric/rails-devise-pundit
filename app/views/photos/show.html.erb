@@ -1,22 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @photo.title %>
+</h1>
+<p>
+  <%= image_tag @photo.image %>
 </p>
 
-<p>
-  <strong>Public:</strong>
-  <%= @photo.public %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @photo.image %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+<p class="well">
   <%= @photo.description %>
 </p>
 

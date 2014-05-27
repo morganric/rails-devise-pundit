@@ -26,6 +26,8 @@ gem "twitter-bootstrap-rails"
 
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :production do
   gem 'pg'
