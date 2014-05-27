@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
-    @photo.views =+ 1
+    @photo.views += 1
     @photo.save
   end
 
