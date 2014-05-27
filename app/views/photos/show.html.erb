@@ -2,36 +2,11 @@
   <%= @photo.title %>
 </h1>
 <p>
-  <%= image_tag @photo.image %>
+  <%= image_tag @photo.image.url %>
 </p>
 
 <p class="well">
   <%= @photo.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @photo.user_id %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @photo.type %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @photo.size %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @photo.slug %>
-</p>
-
-<p>
-  <strong>Views:</strong>
-  <%= @photo.views %>
 </p>
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
