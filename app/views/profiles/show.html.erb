@@ -23,10 +23,39 @@
     <section class= "well">
       <%= @profile.bio %>
       <br/>
-      <span class="pull-right">
-      <%= link_to 'Edit', edit_profile_path(@profile) %> 
-      </span>
+      <% if current_user && current_user.admin? || current_user === @profile.user %>
+        <span class="pull-right">
+        <%= link_to 'Edit', edit_profile_path(@profile) %> 
+        </span>
+      <% end %>
       <br/>
     </section>
+
+    <section>
+      <ul>
+        <% @public_photos.each do |photo| %>
+    <section class="clearfix well">
+      <span class="col-md-2 pull-left">
+          <%= link_to image_tag(photo.image.url(:small), class: "img-rounded"), vanity_photo_url_path(:user_id => photo.user.name, :id => photo.slug) %>
+      </span>
+      <span class="col-md-6 pull-left">
+        <h4>
+          <%= link_to photo.title, vanity_photo_url_path(:user_id => photo.user.name, :id => photo.slug) %>
+          <small>by <%= link_to photo.user.profile.display_name, vanity_url_path(photo.user.name) %><br/>
+           on <%= photo.created_at.to_formatted_s(:short)  %></small>
+        </h4>
+        <p class="">
+        <%= photo.description %>
+        </p>
+      </span>
+      <span class="col-md-2 pull-right">
+        <span class="label label-default"><i class="icon icon-white icon-eye"></i><%= pluralize(photo.views, ' views') %></span>
+      </span>
+    </section>
+  <% end %>  
+      </ul>
+
+    </section>
+
   </div>
 </div>

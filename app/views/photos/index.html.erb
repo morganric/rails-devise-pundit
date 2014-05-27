@@ -1,4 +1,4 @@
-<h1>Photo Of The Day</h1>
+<h1>Photos</h1>
 <hr/>
 
 <article class="row">
@@ -9,7 +9,7 @@
       <span class="col-md-2 pull-left">
           <%= link_to image_tag(photo.image.url(:small), class: "img-rounded"), vanity_photo_url_path(:user_id => photo.user.name, :id => photo.slug) %>
       </span>
-      <span class="col-md-4 pull-left">
+      <span class="col-md-6 pull-left">
         <h4>
           <%= link_to photo.title, vanity_photo_url_path(:user_id => photo.user.name, :id => photo.slug) %>
           <small>by <%= link_to photo.user.profile.display_name, vanity_url_path(photo.user.name) %><br/>

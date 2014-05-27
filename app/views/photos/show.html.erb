@@ -14,7 +14,13 @@
 		<p class="well">
 		  <%= @photo.description %>
 		  <br/>
-		  <%= link_to 'Edit', edit_photo_path(@photo) %> 
+
+		  <% if current_user && current_user.admin? || current_user === @photo.user %>
+			  <span class="pull-right">
+				  <%= link_to 'Edit', edit_photo_path(@photo) %> 
+			  </span>
+		  <% end %>
+		  <br/>
 		</p>
 	</div>
 

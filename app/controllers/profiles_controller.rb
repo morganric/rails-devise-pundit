@@ -11,6 +11,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @user = @profile.user
+    @public_photos = Photo.where(:user_id => @user.id, :public => true)
   end
 
   # GET /profiles/new
@@ -43,8 +45,8 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @profile }
+        format.html { redirect_to vanity_url_path(@profile.user.name), notice: 'Profile was successfully updated.' }
+        format.json { render :show, status: :ok, location: vanity_url_path(@profile.user.name) }
       else
         format.html { render :edit }
         format.json { render json: @profile.errors, status: :unprocessable_entity }

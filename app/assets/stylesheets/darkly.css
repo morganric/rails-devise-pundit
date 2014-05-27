@@ -4,3 +4,7 @@
  *= require darkly/loader
  *= require darkly/bootswatch
 */
+
+ ul {
+ 	padding-left: 0px !important;
+ }
