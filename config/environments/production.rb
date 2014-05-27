@@ -1,3 +1,10 @@
+ENV['ADMIN_NAME'] = 'First User'
+ENV['ADMIN_EMAIL']='user@example.com' 
+ENV['ADMIN_PASSWORD']='changeme'
+ENV['GMAIL_USERNAME']='myname@gmail.com' 
+ENV['GMAIL_PASSWORD']='secret'
+ENV['DOMAIN_NAME'] = 'example.com'
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
