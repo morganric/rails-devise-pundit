@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: familio
+  api_key: '753567973498192'
+  api_secret: XwPhVr1vXxXB37J_-6CkZiv8muo
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: familio
+  api_key: '753567973498192'
+  api_secret: XwPhVr1vXxXB37J_-6CkZiv8muo
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: familio
+  api_key: '753567973498192'
+  api_secret: XwPhVr1vXxXB37J_-6CkZiv8muo
+  enhance_image_tag: true
+  static_image_support: false
