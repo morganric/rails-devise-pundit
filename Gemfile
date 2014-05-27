@@ -15,6 +15,23 @@ gem 'devise'
 gem 'pundit'
 gem 'simple_form'
 gem 'thin'
+gem "therubyracer"
+gem "less-rails"
+gem 'less-rails-bootstrap'
+gem "twitter-bootstrap-rails"
+# twitter bootstrap css & javascript toolkit
+# gem 'twitter-bootswatch-rails', '~> 3.1.1'
+# # twitter bootstrap helpers gem, e.g., alerts etc...
+# gem 'twitter-bootswatch-rails-helpers'
+
+gem 'twitter-bootswatch-rails'
+gem 'twitter-bootswatch-rails-helpers'
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19]
