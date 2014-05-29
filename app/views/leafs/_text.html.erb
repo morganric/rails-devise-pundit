@@ -1,0 +1,21 @@
+<%= simple_form_for(@leaf) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :copy, :label => "Content", as: :text, :input_html => { class: 'test', :cols => 75, :rows => 15 }%>
+    <%= f.label :image, "Image" %>
+    <%= f.file_field :image, hint: "Add a cover image" %>
+    <%= f.hidden_field :url %>
+    <%= f.hidden_field :via_url, :value => false %>
+    <%= f.hidden_field :live, :value => 0 %>
+    <%= f.hidden_field :plays, :value => 0 %>
+    <%= f.hidden_field :views, :value => 0 %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :type, :value => 'text' %>
+  </div>
+  <hr/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

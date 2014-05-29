@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@leaf) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :copy, as: :text, :input_html => { class: 'test', :cols => 50, :rows => 10 } %>
+    <br/>
+    <%= f.label :image, "Photo" %>
+    <%= f.file_field :image, :hint => "minimum width 700px " %>
+    <p>(Minimum width 700px)</p>
+    <%= f.hidden_field :url, class: :hidden, :value => false %>
+    <%= f.hidden_field :via_url, class: :hidden %>
+    <%= f.hidden_field :live, class: :hidden, :value => true %>
+    <%= f.hidden_field :plays, class: :hidden, :value => 0 %>
+    <%= f.hidden_field :views, class: :hidden, :value => 0 %>
+    <%= f.hidden_field :user_id, class: :hidden, :value => current_user.id %>
+    <%= f.hidden_field :type, class: :hidden, :value => 'photo' %>
+  </div>
+  <hr/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

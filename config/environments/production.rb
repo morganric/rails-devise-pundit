@@ -4,6 +4,9 @@ ENV['ADMIN_PASSWORD']='changeme'
 ENV['GMAIL_USERNAME']='myname@gmail.com' 
 ENV['GMAIL_PASSWORD']='secret'
 ENV['DOMAIN_NAME'] = 'example.com'
+ENV["MANDRILL_USERNAME"] = 'embedtree@gmail.com'
+ENV["MANDRILL_APIKEY"] = '3mb3dtr339'
+ENV["DOMAIN_NAME"] = 'embedtree.com'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -80,8 +83,8 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
+    address: "smtp.mandrillapp.com",
+    port: 25,
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,

@@ -1,0 +1,24 @@
+<h1>New Audio</h1>
+
+<%= simple_form_for(@leaf) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :copy %>
+    <%= f.file_field :image, as: :hidden %>
+    <%= f.label :audio, "Audio" %>
+    <%= f.file_field :audio %>
+    <%= f.input :url, as: :hidden %>
+    <%= f.input :via_url, as: :hidden %>
+    <%= f.input :live, as: :hidden %>
+    <%= f.input :plays, as: :hidden %>
+    <%= f.input :views, as: :hidden %>
+    <%= f.input :user_id, as: :hidden %>
+    <%= f.input :type, as: :hidden %>
+  </div>
+  <br/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

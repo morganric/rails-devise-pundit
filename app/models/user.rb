@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :confirmable, :lockable, :timeoutable, :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :vip, :admin, :pro, :paid, :banned]
   after_initialize :set_default_role, :if => :new_record?
   after_create :create_profile
 
@@ -23,5 +23,6 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :photos
+  has_many :leafs
 
 end

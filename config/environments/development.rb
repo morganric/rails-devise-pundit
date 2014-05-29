@@ -1,3 +1,7 @@
+ENV["MANDRILL_USERNAME"] = 'embedtree@gmail.com'
+ENV["GMAIL_USERNAME"] = 'embedtree@gmail.com'
+ENV["MANDRILL_APIKEY"] = 'rwAbwfwA5Hq77cYr8lXP2g'
+ENV["GMAIL_PASSWORD"] = "3mb3dtr339"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -10,7 +14,7 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Show full error reports and disable caching.
+  # Show full error reports and disable caching.  
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
@@ -29,13 +33,13 @@ Rails.application.configure do
   config.assets.debug = true
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: Rails.application.secrets.domain_name,
+    address: "smtp.mandrillapp.com",
+    port: 25,
+    domain: "example.com", #Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
+    user_name: "embedtree@gmail.com", #Rails.application.secrets.email_provider_username,
+    password: "rwAbwfwA5Hq77cYr8lXP2g" #Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

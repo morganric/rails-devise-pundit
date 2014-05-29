@@ -1,0 +1,25 @@
+<%= simple_form_for(@leaf) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :copy,as: :text, :input_html => { class: 'test', :cols => 50, :rows => 10 } %>
+    <br/>
+    <%= f.label :audio, "Audio" %>
+    <%= f.file_field :audio %>
+    <br/>
+    <%= f.label :audio, "Cover Image" %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :url, as: :hidden %>
+    <%= f.hidden_field :via_url, as: :hidden, :value => false %>
+    <%= f.hidden_field :live, as: :hidden, :value => 0 %>
+    <%= f.hidden_field :plays, as: :hidden, :value => 0 %>
+    <%= f.hidden_field :views, as: :hidden, :value => 0 %>
+    <%= f.hidden_field :user_id, as: :hidden, :value => current_user.id %>
+    <%= f.hidden_field :type, as: :hidden, :value => 'audio' %>
+  </div>
+  <hr/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

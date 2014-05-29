@@ -1,6 +1,5 @@
-<h1>Editing profile</h1>
+<h1>Editing <%= link_to @profile.display_name, vanity_url_path(@profile) %>
+</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>

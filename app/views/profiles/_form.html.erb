@@ -4,6 +4,8 @@
   <div class="form-inputs">
     <%= f.input :display_name %>
     <%= f.input :bio %>
+    <br/> 
+    <%= f.label :image, "Profile Picture" %>
     <%= f.file_field :image %>
     <%= f.input :website %>
     <%= f.input :date_of_birth %>
@@ -12,7 +14,7 @@
     <%= f.input :latitude, as: :hidden %>
     <%= f.input :longitude, as: :hidden %>
   </div>
-
+  <hr/>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>

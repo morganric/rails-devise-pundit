@@ -15,6 +15,3 @@
 //= require turbolinks
 //= require bootstrap
 
-$(document).ready(function() {
-	$('.alert, .notice').fadeOut(2000);
-});

@@ -38,6 +38,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [300, 300]
   end
 
+  version :photo do
+    process :resize_to_fit => [750, 750]
+  end
+
   version :standard do
     process :resize_to_fit => [500, 500]
   end
@@ -59,8 +63,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  def filename
-    "something.jpg" if original_filename
-  end
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 
 end

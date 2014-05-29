@@ -1,0 +1,40 @@
+<% @photos.each do |leaf| %>
+        <section class="clearfix well">
+          <span class="col-md-2 pull-left">
+              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+          </span> 
+          <span class="col-md-8 pull-left">
+            <h4>
+              <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+              <small>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %><br/>
+               on <%= leaf.created_at.to_formatted_s(:short)  %></small>
+            </h4>
+            <p class="">
+            <%= truncate(leaf.copy, length: 50) %>
+            </p>
+          </span>
+          <span class="col-md-2 pull-right">
+            
+            <span class="label label-primary" >
+            <% if leaf.type == "audio" %> 
+              <i class="glyphicon glyphicon-music"></i>
+               &nbsp;<%= leaf.type %>
+             <% end %>
+             <% if leaf.type == "video" %> 
+              <i class="glyphicon glyphicon-film"></i>
+               &nbsp;<%= leaf.type %>
+             <% end %>
+             <% if leaf.type == "photo" %> 
+              <i class="glyphicon glyphicon-camera"></i>
+               &nbsp;<%= leaf.type %>
+             <% end %>
+             <% if leaf.type == "text" %> 
+              <i class="glyphicon glyphicon-pencil"></i>
+               &nbsp;<%= leaf.type %>
+             <% end %>
+            </span>
+            <br/>
+            <span class="label label-default"><i class="icon icon-white icon-eye-open"></i><%= pluralize(leaf.views, ' views') %></span>
+            </span>
+        </section>
+      <% end %>
