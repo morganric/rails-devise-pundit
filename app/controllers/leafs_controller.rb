@@ -7,10 +7,10 @@ class LeafsController < ApplicationController
   def index
     @ago =  Time.now-7.days
     @leafs = Leaf.where('created_at > ?', @ago ).order("views DESC")
-    @photos = Leaf.where(:type => "photo").order("views DESC")
-    @texts = Leaf.where(:type => "text" ).order("views DESC")
-    @videos = Leaf.where(:type => "video").order("views DESC")
-    @audios = Leaf.where(:type => "audio").order("views DESC")
+    @photos = @leafs.where(:type => "photo")
+    @texts = @leafs.where(:type => "text" )
+    @videos = @leafs.where(:type => "video")
+    @audios = @leafs.where(:type => "audio")
   end
 
   # GET /leafs/1
@@ -49,11 +49,23 @@ class LeafsController < ApplicationController
   def edit
   end
 
+  # acts_as_taggable
+  def tag
+    @leafs = Leaf.tagged_with(params[:id])
+    @photos = @leafs.where(:type => "photo")
+    @texts = @leafs.where(:type => "text" )
+    @videos = @leafs.where(:type => "video")
+    @audios = @leafs.where(:type => "audio")
+
+    @tags = Leaf.tag_counts_on(:tags)
+    render :action => 'index'
+  end
+
   # POST /leafs
   # POST /leafs.json
   def create
     @leaf = Leaf.new(leaf_params)
-    @leaf.user = current_user.id
+    @leaf.user_id = current_user.id
 
     respond_to do |format|
       if @leaf.save
@@ -98,6 +110,7 @@ class LeafsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leaf_params
-      params.require(:leaf).permit(:title, :copy, :image, :video, :audio, :url, :via_url, :live, :plays, :views, :user_id, :type)
+      params.require(:leaf).permit(:title, :copy, :image, :video, :audio, :url, :via_url,
+       :live, :plays, :views, :user_id, :type, :tag_list)
     end
 end

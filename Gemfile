@@ -24,6 +24,7 @@ gem 'twitter-bootswatch-rails-helpers'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'acts-as-taggable-on'
 
 group :production do
   gem 'pg'

@@ -3,7 +3,7 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :copy  %>
+    <%= f.input :copy, as: :text, :input_html => { class: 'test', :cols => 80, :rows => 12 }  %>
     <%= f.input :url %>
     <%= f.input :image %>
     <%= f.input :via_url, as: :hidden %>
@@ -12,7 +12,13 @@
     <%= f.input :views, as: :hidden %>
     <%= f.input :user_id, as: :hidden %>
     <%= f.input :type, as: :hidden %>
+
   </div>
+  </br/>
+    <div class="field">
+      <%= f.label :tags %>
+      <%= f.text_field :tag_list, :placeholder => "tag1, tag2, tag3 etc." %>
+    </div>
   <hr/>
   <div class="form-actions">
     <%= f.button :submit %>

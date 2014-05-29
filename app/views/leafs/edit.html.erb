@@ -1,4 +1,4 @@
-<h1>Editing leaf</h1>
+<h1>Editing <%= link_to @leaf.title, vanity_leaf_url_path(@leaf.user.name, @leaf.slug) %></h1>
 
 <%= render 'form' %>
 

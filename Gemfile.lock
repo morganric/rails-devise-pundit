@@ -27,6 +27,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.2.5)
+      actionpack (>= 3, < 5)
+      activerecord (>= 3, < 5)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     aws_cf_signer (0.1.2)
@@ -281,6 +284,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   better_errors
   binding_of_caller
   bootstrap-sass

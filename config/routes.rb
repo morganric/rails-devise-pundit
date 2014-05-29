@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :leafs
 
+  get "/tagged/:id" => "leafs#tag", :as => :tagged_posts
+
   get 'upload', to: "leafs#new", as: "upload"
   get 'leafs/new/audio', to: "leafs#audio", as: "new_audio"
   get 'leafs/new/video', to: "leafs#video", as: "new_video"
