@@ -52,12 +52,18 @@
              <% end %>
             </span>
             &nbsp;
-            <span class="label label-default"><i class="icon icon-white icon-eye-open"></i><%= pluralize(leaf.views, ' views') %></span>
+            <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-eye-open"></i>&nbsp; <%= pluralize(leaf.views, ' views') %></span>
             </p>
 
               <p class="tags">
                 <% leaf.tags.each do |tag| %>
                   <%= link_to "##{tag}", tagged_posts_path(tag.name), :class => "badge" %>&nbsp;
+                <% end %>
+              </p>
+
+              <p>
+               <% if leaf.live == false %>
+                  <span class="label label-danger"><i class="glyphicon glyphicon-white glyphicon-flag"></i>&nbsp; Not Live!</span>
                 <% end %>
               </p>
 

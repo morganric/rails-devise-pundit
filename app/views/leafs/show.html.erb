@@ -68,8 +68,11 @@
            &nbsp;<%= @leaf.type %>
          <% end %>
       </span>
-      <br/>
-      <span>
+      &nbsp;
+       <% if @leaf.live == false %>
+                  <span class="label label-danger"><i class="glyphicon glyphicon-white glyphicon-flag"></i>&nbsp; Not Live!</span>
+                <% end %>
+      <br/> 
       <br/> 
       <div class="tags">
         <% @leaf.tags.each do |tag| %>
