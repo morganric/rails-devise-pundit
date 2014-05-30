@@ -7,13 +7,14 @@
     <%= f.input :url %>
     <%= f.input :image %>
     <%= f.input :via_url, as: :hidden %>
-    <%= f.input :live, as: :hidden, :value => true %>
     <%= f.input :plays, as: :hidden%>
     <%= f.input :views, as: :hidden %>
     <%= f.input :user_id, as: :hidden %>
     <%= f.input :type, as: :hidden %>
-
   </div>
+  <% if current_user.admin? %>
+    <%= f.input :live %>
+  <% end %>
   </br/>
     <div class="field">
       <%= f.label :tags %>

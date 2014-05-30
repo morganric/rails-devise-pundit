@@ -6,5 +6,5 @@
 //= require darkly/bootswatch
 
 $(document).ready(function() {
-	$('.alert, .notice').fadeOut(2000);
+	$('.alert, .notice').fadeOut(3000);
 });

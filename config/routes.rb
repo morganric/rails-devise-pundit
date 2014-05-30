@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :leafs
 
+  get 'pages/:id' => 'high_voltage/pages#show',  :as => 'pages'
+
   get "/tagged/:id" => "leafs#tag", :as => :tagged_posts
 
   get 'upload', to: "leafs#new", as: "upload"

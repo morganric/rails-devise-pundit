@@ -5,8 +5,13 @@ class LeafsController < ApplicationController
   # GET /leafs
   # GET /leafs.json
   def index
-    @ago =  Time.now-7.days
-    @leafs = Leaf.where('created_at > ?', @ago ).order("views DESC")
+    @ago =  Time.now-7.days 
+    if current_user && current_user.admin?
+      @leafs = Leaf.all
+    else
+      @leafs = Leaf.where(:live => true) 
+    end
+    @leafs = @leafs.where('created_at > ?', @ago ).order("views DESC")
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
     @videos = @leafs.where(:type => "video")
@@ -16,6 +21,13 @@ class LeafsController < ApplicationController
   # GET /leafs/1
   # GET /leafs/1.json
   def show
+
+    unless current_user && current_user.admin?
+      if @leaf.live == false
+        redirect_to root_path, notice: 'Sorry, nohting here.'
+      end
+    end
+
     @leaf.views += 1
     @leaf.save
   end
@@ -51,7 +63,12 @@ class LeafsController < ApplicationController
 
   # acts_as_taggable
   def tag
-    @leafs = Leaf.tagged_with(params[:id])
+    if current_user && current_user.admin?
+      @leafs = Leaf.all
+    else
+      @leafs = Leaf.where(:live => true) 
+    end
+    @leafs = @leafs.tagged_with(params[:id])
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
     @videos = @leafs.where(:type => "video")
