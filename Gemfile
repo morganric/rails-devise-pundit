@@ -26,6 +26,11 @@ gem 'cloudinary'
 gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'acts-as-taggable-on'
 gem 'high_voltage', '~> 2.1.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'activerecord-session_store'
+gem 'panda', '~> 1.6.0'
 
 group :production do
   gem 'pg'
@@ -44,6 +49,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem "debugger"
 end
 group :development, :test do
   gem 'factory_girl_rails'

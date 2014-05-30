@@ -2,6 +2,10 @@ ENV["MANDRILL_USERNAME"] = 'embedtree@gmail.com'
 ENV["GMAIL_USERNAME"] = 'embedtree@gmail.com'
 ENV["MANDRILL_APIKEY"] = 'rwAbwfwA5Hq77cYr8lXP2g'
 ENV["GMAIL_PASSWORD"] = "3mb3dtr339"
+ENV["OMNIAUTH_PROVIDER_KEY"] = "GpD8bwv1j8e6R2NhsJ9xZAC4a"
+ENV["OMNIAUTH_PROVIDER_SECRET"] = "ah2efRJhtvgBh1czICI7i8dGybVgnXUyIC4DU5lRGPt7iweaaL"
+ENV["FACEBOOK_APP_ID"] = "1440239169528450"
+ENV["FACEBOOK_APP_SECRET"] = "884240b8d9bf9d868a1bd0f0465c90bf"
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
