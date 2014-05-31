@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :leafs
 
+  post 'user_favs' => 'user_favs#create', :as => 'user_favs'
+  delete 'user_favs' => 'user_favs#destroy', :as => 'delete_user_favs'
+
   get 'pages/:id' => 'high_voltage/pages#show',  :as => 'pages'
 
   get "/tagged/:id" => "leafs#tag", :as => :tagged_posts

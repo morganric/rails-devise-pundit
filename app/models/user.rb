@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
   has_many :photos
   has_many :leafs
 
+  has_many :user_favs
+  # has_many :favourites, :through => :user_favs, :source => :leaf
+  has_many :favourites, :through => :user_favs, :source => :leaf
+
 end

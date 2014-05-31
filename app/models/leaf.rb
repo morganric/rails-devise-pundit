@@ -18,4 +18,8 @@ class Leaf < ActiveRecord::Base
 
 	belongs_to :user
 
+	has_many :user_favs
+    has_many :favourited_by, :through => :user_favs, :source => :user
+
+    
 end
