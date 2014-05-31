@@ -45,7 +45,10 @@
       <br/>
       <%= link_to 'Edit', edit_leaf_path(@leaf) %>
       </span>
-      <h3>Favourited by</h3>
-      <% @leaf.favourited_by.each do |fav| %>
-        <%= link_to fav.profile.display_name, vanity_url_path(fav.name) %>
+
+      <% if @leaf.favourited_by != [] %>
+        <h3>Favourited by</h3>
+        <% @leaf.favourited_by.each do |fav| %>
+          <%= link_to fav.profile.display_name, vanity_url_path(fav.name) %>
+        <% end %>
       <% end %>
