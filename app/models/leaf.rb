@@ -21,5 +21,5 @@ class Leaf < ActiveRecord::Base
 	has_many :user_favs
     has_many :favourited_by, :through => :user_favs, :source => :user
 
-    
+    has_many :clicks
 end

@@ -71,8 +71,30 @@
                 </p>
               </span>
               <span class="col-md-2 pull-right">
-                <span class="label label-default"><i class="glyphicon glyphicon-white icon-eye"></i><%= pluralize(leaf.views, ' views') %></span>
-                <span class="label label-primary"><i class="glyphicon glyphicon-white icon-"></i><%= leaf.type %></span>
+                <span class="label label-primary " >
+                <% if leaf.type == "audio" %> 
+                  <i class="glyphicon glyphicon-music"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "video" %> 
+                  <i class="glyphicon glyphicon-film"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "photo" %> 
+                  <i class="glyphicon glyphicon-camera"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "text" %> 
+                  <i class="glyphicon glyphicon-pencil"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                </span>
+                <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-eye-open"></i>&nbsp; <%= pluralize(leaf.views, ' view') %></span>
+                <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-heart"></i>&nbsp; <%= pluralize(leaf.favourited_by.count, ' favourite') %></span>
+                <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-hand-up"></i>
+                 <%= pluralize(leaf.clicks.count, ' click') %></span>
+                &nbsp;
+
               </span>
             </li>
           <% end %>  
@@ -96,8 +118,29 @@
                   </p>
                 </span>
                 <span class="col-md-2 pull-right">
-                  <span class="label label-default"><i class="glyphicon glyphicon-white icon-eye"></i><%= pluralize(leaf.views, ' views') %></span>
-                  <span class="label label-primary"><i class="glyphicon glyphicon-white icon-"></i><%= leaf.type %></span>
+                  <span class="label label-primary " >
+                <% if leaf.type == "audio" %> 
+                  <i class="glyphicon glyphicon-music"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "video" %> 
+                  <i class="glyphicon glyphicon-film"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "photo" %> 
+                  <i class="glyphicon glyphicon-camera"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "text" %> 
+                  <i class="glyphicon glyphicon-pencil"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                </span>
+                <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-eye-open"></i>&nbsp; <%= pluralize(leaf.views, ' view') %></span>
+                <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-heart"></i>&nbsp; <%= pluralize(leaf.favourited_by.count, ' favourite') %></span>
+                <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-hand-up"></i>
+                 <%= pluralize(leaf.clicks.count, ' click') %></span>
+                &nbsp;
                 </span>
               </li>
             <% end %>  

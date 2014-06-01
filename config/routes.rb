@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :leafs
 
+  post 'clicks' => 'clicks#create', :as => 'clicks'
   post 'user_favs' => 'user_favs#create', :as => 'user_favs'
   delete 'user_favs' => 'user_favs#destroy', :as => 'delete_user_favs'
 

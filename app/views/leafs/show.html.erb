@@ -4,12 +4,12 @@
 
   <div class="col-md-8">
       <h1>
-        <%= link_to @leaf.title, @leaf.url, :target => "_blank" %>
+        <%= link_to @leaf.title, "http://#{@leaf.url}", :target => "_blank", :class => "click" %>
         <small>by <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
       </h1>
       <% if @leaf.type === 'photo' %>
       <p> 
-        <%= image_tag @leaf.image.url(:photo), :class => "img-rounded img-thumbnail" %>
+        <%= image_tag(@leaf.image.url(:photo), :class => "img-rounded img-thumbnail") %>
       </p>
       <% end %>
 
@@ -35,7 +35,7 @@
   </div>
   <div class="col-md-4" id="sidebar">
       <p>
-        <%= link_to image_tag(@leaf.image.url(:square)), @leaf.url, :target => "_blank" %>
+        <%= link_to image_tag(@leaf.image.url(:square)), "http://#{@leaf.url}", :target => "_blank", :class => "click"  %>
       </p>
 
       <% if UserFav.where(:user_id => current_user.id, :leaf_id => @leaf.id).exists? %>
@@ -43,12 +43,13 @@
       <% else %>
         <%= link_to raw("<i class='glyphicon glyphicon-heart'></i>  Favourite"), user_favs_path(:user_fav => {:leaf_id => @leaf.id,:user_id => current_user.id}), :remote => true, class: "btn btn-default", :method => :post %>
       <% end %>
-
        <p>
           <%= render 'sidebar', leaf: @leaf %>
        </p>
   </div>
 </div>
 
+<div id="leaf_id" class="hidden"><%= @leaf.id %></div>
+<div id="user_id" class="hidden"><%= current_user.id %></div>
 
 
