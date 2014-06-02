@@ -3,5 +3,6 @@ development:
             secret_key: '45e4a168f4354f575b08'
             cloud_id: '243a9c1a7be1194d1c19bbc6cb6f4534'	
             # Uncomment the line below if your panda account is in the EU
-            api_host: api-eu.pandastream.com
+            # api_host: api-eu.pandastream.com
+            api_host: api.pandastream.com
           

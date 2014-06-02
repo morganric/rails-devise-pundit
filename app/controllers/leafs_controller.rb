@@ -78,6 +78,17 @@ class LeafsController < ApplicationController
     render :action => 'index'
   end
 
+  def featured
+    @leafs = Leaf.where(:featured =>  true).order('created_at DESC').limit(9)
+    @photos = @leafs.where(:type => "photo")
+    @texts = @leafs.where(:type => "text" )
+    @videos = @leafs.where(:type => "video")
+    @audios = @leafs.where(:type => "audio")
+
+    # render :action => 'index'
+
+  end
+
   # POST /leafs
   # POST /leafs.json
   def create
@@ -128,6 +139,6 @@ class LeafsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def leaf_params
       params.require(:leaf).permit(:title, :copy, :image, :video, :audio, :url, :via_url,
-       :live, :plays, :views, :user_id, :type, :tag_list)
+       :live, :plays, :views, :user_id, :type, :tag_list, :featured)
     end
 end

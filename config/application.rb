@@ -27,6 +27,8 @@ module RailsDevisePundit
     # Precompile additional assets
     config.assets.precompile += %w(darkly.js darkly.css darkly.js darkly.css)
 
+    config.serve_static_assets = true
+
     # less-rails gem (default all generators)
     config.app_generators.stylesheet_engine :less
 

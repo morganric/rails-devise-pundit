@@ -3,7 +3,13 @@
  *= require_self
  *= require darkly/loader
  *= require darkly/bootswatch
- *= require_tree .
+ *= require 'masonry/basic'
+ *= require 'masonry/centered'
+ *= require 'masonry/fluid'
+ *= require 'masonry/gutters'
+ *= require 'masonry/infinitescroll'
+ *= require 'masonry/right-to-left'
+ *= require 'masonry/transitions'
 */
 
  ul {
@@ -40,6 +46,7 @@ body {
   /* Set the fixed height of the footer here */
   height: 60px;
   padding-top: 60px;
+  margin-top: 20px;
 }
 
 
@@ -62,3 +69,5 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+.centered { margin: 0 auto; }

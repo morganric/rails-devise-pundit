@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'pages/:id' => 'high_voltage/pages#show',  :as => 'pages'
 
   get "/tagged/:id" => "leafs#tag", :as => :tagged_posts
+  get "featured" => "leafs#featured", :as => :featured
 
   get 'upload', to: "leafs#new", as: "upload"
   get 'leafs/new/audio', to: "leafs#audio", as: "new_audio"
