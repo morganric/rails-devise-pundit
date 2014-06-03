@@ -35,6 +35,7 @@
     </section>
 
     <section>
+    <% if @profile.user.leafs != [] %>
 
       <ul class="nav nav-tabs" style="margin-bottom: 15px;">
         <li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-picture" ></i>  All</a></li>
@@ -148,6 +149,9 @@
         </div>
       </div>
 
+      <% else %>
+          Nothing growing on here yet...
+      <% end %>
     </section>
 
   </div>

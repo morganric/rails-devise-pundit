@@ -3,9 +3,8 @@ ENV['ADMIN_EMAIL']='user@example.com'
 ENV['ADMIN_PASSWORD']='changeme'
 ENV['GMAIL_USERNAME']='myname@gmail.com' 
 ENV['GMAIL_PASSWORD']='secret'
-ENV['DOMAIN_NAME'] = 'example.com'
 ENV["MANDRILL_USERNAME"] = 'embedtree@gmail.com'
-ENV["MANDRILL_APIKEY"] = '3mb3dtr339'
+ENV["MANDRILL_APIKEY"] = 'rwAbwfwA5Hq77cYr8lXP2g'
 ENV["DOMAIN_NAME"] = 'embedtree.com'
 
 Rails.application.configure do
@@ -88,8 +87,8 @@ Rails.application.configure do
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
+    user_name:  "embedtree@gmail.com",# Rails.application.secrets.email_provider_username,
+    password: "rwAbwfwA5Hq77cYr8lXP2g"#, Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
