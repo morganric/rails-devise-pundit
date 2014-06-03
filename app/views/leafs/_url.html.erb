@@ -7,11 +7,11 @@
     <%= f.input :url, :input_html => {:style=> 'width: 500px'} %>
     <%= f.hidden_field :image %>
     <%= f.hidden_field :via_url, :value => true %>
-    <%= f.input :live, as: :hidden, :value => true %>
-    <%= f.input :plays, as: :hidden, :value => 0 %>
-    <%= f.input :views, as: :hidden, :value => 0 %>
-    <%= f.input :user_id, as: :hidden, :value => current_user.id %>
-    <%= f.input :type, as: :hidden %>
+    <%= f.hidden_field :live, :value => true %>
+    <%= f.hidden_field :plays, :value => 0 %>
+    <%= f.hidden_field :views, :value => 0 %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :type %>
   </div>
   <br/>
   <div class="form-actions">

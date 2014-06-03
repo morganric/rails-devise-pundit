@@ -8,7 +8,7 @@
         <small>by <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
         </h1>
 
-      <% if @leaf.via_url %>
+      <% if @leaf.via_url && @leaf.embed_code != nil %>
         <div class="flex-video">
           <%= @leaf.embed_code.html_safe %>
         </div>

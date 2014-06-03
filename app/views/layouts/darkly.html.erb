@@ -25,15 +25,18 @@
       <div class="container" >
        <%= render 'layouts/messages' %>
        <%= yield %>
+       <hr/>
       </div>
     </main>
-
+    <br/>
     <div id="footer" >
       <div class="container panel panel-default">
         <p class="text-muted" class="col-md-12">
           <ul class="list-unstyled">
               <li class="pull-left"><%= link_to 'Home', root_path %></li>
               <li class="pull-left"><%= link_to 'About', page_path('about') %></li>
+              <li class="pull-left"><%= link_to 'Featured', featured_path %></li>
+              <li class="pull-left"><%= link_to 'Upload', upload_path %></li>
             </ul>
         </p>
         <br/>

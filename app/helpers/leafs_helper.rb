@@ -17,6 +17,10 @@ module LeafsHelper
 		@leaf.thumbnail_url = obj[0].thumbnail_url
 		@leaf.remote_image_url = @leaf.thumbnail_url
 
+		if obj[0].type == ""
+			@leaf.type == "Link"
+		end
+
 		# uploader = ImageUploader.new
 		# uploader.download! @leaf.thumbnail_url
 		# uploader.store!
