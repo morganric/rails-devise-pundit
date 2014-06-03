@@ -21,6 +21,7 @@ class LeafsController < ApplicationController
       @texts = @leafs.where(:type => "text" ).page(params[:texts])
       @videos = @leafs.where(:type => "video").page(params[:videos])
       @audios = @leafs.where(:type => "audio").page(params[:audios])
+      @links = @leafs.where(:type => "link").page(params[:links])
       
 
   end
