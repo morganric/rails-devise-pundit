@@ -17,9 +17,14 @@ module LeafsHelper
 		@leaf.thumbnail_url = obj[0].thumbnail_url
 		@leaf.remote_image_url = @leaf.thumbnail_url
 
-		if obj[0].type == ""
-			@leaf.type == "Link"
+		if obj[0].type === nil || obj[0].type === "link" || obj[0].type === "rich"
+			@leaf.type = "link"
 		end
+
+		if obj[0].provider_name === "Soundcloud" || obj[0].provider_name === "Spotify" || obj[0].provider_name === "Mixcloud"
+			@leaf.type = "audio"
+		end
+
 
 		# uploader = ImageUploader.new
 		# uploader.download! @leaf.thumbnail_url

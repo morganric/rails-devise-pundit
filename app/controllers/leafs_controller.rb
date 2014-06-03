@@ -7,7 +7,7 @@ class LeafsController < ApplicationController
   # GET /leafs
   # GET /leafs.json
   def index
-    @ago =  Time.now-7.days 
+    @ago =  Time.now-3.days 
     if current_user && current_user.admin?
       @leafs = Leaf.all
     else
