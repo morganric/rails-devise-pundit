@@ -6,8 +6,8 @@
     <%= f.input :copy, as: :text, :input_html => { class: 'test', :cols => 50, :rows => 10 } %>
     <%= f.hidden_field :image %>
     <br/>
-    <%= f.label :video, "Poster Image" %>
-    <%= f.file_field :video %>
+    <%= f.label :video, "Video File (.mp4 only max size 10 MB)" %>
+    <%= f.file_field :video, :hint => "mp4 only max size 10 MB" %>
     <%= f.hidden_field :url, as: :hidden  %>
     <%= f.hidden_field :via_url, as: :hidden, :value => false %>
     <%= f.hidden_field :live, as: :hidden, :value => true %>

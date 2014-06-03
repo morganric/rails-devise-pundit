@@ -1,3 +1,4 @@
+ENV['PANDASTREAM_URL'] = "https://e316004b0285a30b60e3:3165cec2e770620d6973@api.pandastream.com/59058807b78fc5405c6b63cf44140873"
 ENV['ADMIN_NAME'] = 'First User'
 ENV['ADMIN_EMAIL']='user@example.com' 
 ENV['ADMIN_PASSWORD']='changeme'
