@@ -1,6 +1,8 @@
 class Leaf < ActiveRecord::Base
-	 require 'acts-as-taggable-on'
+	require 'acts-as-taggable-on'
 	acts_as_taggable
+
+	paginates_per 5
 
 	extend FriendlyId
     friendly_id :title, use: [:slugged, :finders]

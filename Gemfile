@@ -28,6 +28,7 @@ gem 'acts-as-taggable-on'
 gem 'high_voltage', '~> 2.1.0'
 gem 'masonry-rails'
 gem 'embedly'
+gem 'kaminari'
 
 group :production do
   gem 'pg'
