@@ -1,6 +1,8 @@
 class LeafsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index]
+  before_filter :authenticate_user!, except: [:show, :index, :tag, :featured]
   before_action :set_leaf, only: [:show, :edit, :update, :destroy]
+
+  include LeafsHelper
 
   # GET /leafs
   # GET /leafs.json
@@ -94,6 +96,10 @@ class LeafsController < ApplicationController
   def create
     @leaf = Leaf.new(leaf_params)
     @leaf.user_id = current_user.id
+
+    if @leaf.via_url
+      url_handler
+    end
 
     respond_to do |format|
       if @leaf.save

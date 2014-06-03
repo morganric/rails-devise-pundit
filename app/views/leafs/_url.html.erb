@@ -4,20 +4,15 @@
   <div class="form-inputs">
     <%= f.hidden_field :title %>
     <%= f.hidden_field :copy  %>
-    <%= f.input :url, :hint => "Upload embedded via a link", :placeholder => "e.g. www.youtube.com" %>
+    <%= f.input :url, :input_html => {:style=> 'width: 500px'} %>
     <%= f.hidden_field :image %>
-    <%= f.input :via_url, as: :hidden, :value => true %>
+    <%= f.hidden_field :via_url, :value => true %>
     <%= f.input :live, as: :hidden, :value => true %>
     <%= f.input :plays, as: :hidden, :value => 0 %>
     <%= f.input :views, as: :hidden, :value => 0 %>
     <%= f.input :user_id, as: :hidden, :value => current_user.id %>
     <%= f.input :type, as: :hidden %>
   </div>
-  <br/>
-  <div class="field">
-      <%= f.label :tags %>
-      <%= f.text_field :tag_list, :placeholder => "tag1, tag2, tag3 etc." %>
-    </div>
   <br/>
   <div class="form-actions">
     <%= f.button :submit %>

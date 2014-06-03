@@ -48,7 +48,7 @@
         <% end %>
       </div>
       <br/>
-      <%= link_to 'Edit', edit_leaf_path(@leaf) %>
+      <%= link_to 'Edit', edit_leaf_path(@leaf) %> | <%= link_to 'Delete', leaf_path(@leaf), method: :delete,  data: { confirm: "Are you sure?" } %>
       </span>
 
       <% if @leaf.favourited_by != [] %>

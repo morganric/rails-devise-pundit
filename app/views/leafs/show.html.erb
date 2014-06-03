@@ -3,27 +3,35 @@
 <div class="clearfix row">
 
   <div class="col-md-8">
-      <h1>
-        <%= link_to @leaf.title, "http://#{@leaf.url}", :target => "_blank", :class => "click" %>
+       <h1>
+          <%= link_to @leaf.title, @leaf.url, :target => "_blank", :class => "click" %>
         <small>by <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
-      </h1>
-      <% if @leaf.type === 'photo' %>
-      <p> 
-        <%= image_tag(@leaf.image.url(:photo), :class => "img-rounded img-thumbnail") %>
-      </p>
-      <% end %>
+        </h1>
 
-      <% if @leaf.type === 'audio' %>
-        <audio controls>
-          <source src="<%= @leaf.audio %>" type="audio/mp3">
-        Your browser does not support the audio element.
-        </audio>
-      <% end %>
+      <% if @leaf.via_url %>
+        <div class="flex-video">
+          <%= @leaf.embed_code.html_safe %>
+        </div>
+      <% else %>
+        <% if @leaf.type === 'photo' %>
+        <p> 
+          <%= image_tag(@leaf.image.url(:photo), :class => "img-rounded img-thumbnail") %>
+        </p>
+        <% end %>
 
-      <% if @leaf.type === 'video' %>
-        <video width="320" height="240" controls poster="<%= @leaf.image.url %>">
-          <source src="<%= @leaf.video %>" type="video/mp4">
-        </video>
+        <% if @leaf.type === 'audio' %>
+          <audio controls>
+            <source src="<%= @leaf.audio %>" type="audio/mp3">
+          Your browser does not support the audio element.
+          </audio>
+        <% end %>
+
+        <% if @leaf.type === 'video' %>
+          <video width="320" height="240" controls poster="<%= @leaf.image.url %>">
+            <source src="<%= @leaf.video %>" type="video/mp4">
+          </video>
+        <% end %>
+
       <% end %>
 
     <section class="panel panel-default">
@@ -34,10 +42,14 @@
         
   </div>
   <div class="col-md-4" id="sidebar">
-      <p>
-        <%= link_to image_tag(@leaf.image.url(:square)), "http://#{@leaf.url}", :target => "_blank", :class => "click"  %>
-      </p>
 
+    <p>
+      <%# if @leaf.via_url %>
+        <%#= link_to image_tag(@leaf.thumbnail_url, :style => "max-width: 300px;" ), @leaf.url, :target => "_blank", :class => "click"  %>
+      <%# else %>
+          <%= link_to image_tag(@leaf.image.url(:square)), @leaf.url, :target => "_blank", :class => "click"  %>
+      <%# end %>
+    </p>
       <% if UserFav.where(:user_id => current_user.id, :leaf_id => @leaf.id).exists? %>
           <%= link_to raw("<i class='glyphicon glyphicon-heart-empty'></i>  Un-Favourite"), delete_user_favs_path(:user_fav => {:leaf_id => @leaf.id,:user_id => current_user.id}), :remote => true, class: "btn btn-default", :method => :delete %>
       <% else %>

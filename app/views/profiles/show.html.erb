@@ -27,7 +27,7 @@
       <br/>
       <% if current_user && current_user.admin? || current_user === @profile.user %>
         <span class="pull-right">
-        <%= link_to 'Edit', edit_profile_path(@profile) %> 
+        <%= link_to 'Edit', edit_profile_path(@profile) %>
         </span>
       <% end %>
       <br/>
@@ -48,7 +48,7 @@
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="all">
         <ul>
-          <% @profile.user.leafs.each do |leaf| %>
+          <% @profile.user.leafs.order("created_at DESC").each do |leaf| %>
             <li class="clearfix well">
               <span class="col-md-2 pull-left">
                   <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>

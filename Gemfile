@@ -27,6 +27,7 @@ gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.
 gem 'acts-as-taggable-on'
 gem 'high_voltage', '~> 2.1.0'
 gem 'masonry-rails'
+gem 'embedly'
 
 group :production do
   gem 'pg'

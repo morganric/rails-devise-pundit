@@ -1,32 +1,34 @@
 <h1>New Leaf</h1>
 
 <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-  <li class="active"><a href="#photo" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
-  <li class=""><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
+  <li class=" pull-right"><a href="#photo" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
+  <li class="pull-right"><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
   <% if current_user && current_user.admin? %>
-  <li class=""><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li>
-  <li class=""><a href="#audio" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
-  <li class="pull-right"><a href="#url" data-toggle="tab"><i class="glyphicon glyphicon-link" ></i>  Url</a></li>
+  <li class="disabled pull-right"><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li>
+  <li class="disabled pull-right"><a href="#audio" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
+  <li class="active"><a href="#url" data-toggle="tab"><i class="glyphicon glyphicon-link" ></i>  Url</a></li>
   <% end %>
 </ul>
 
 
 <div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade active in" id="photo">
+  <div class="tab-pane fade " id="photo">
   		<%= render 'photo' %>
   </div>
   <div class="tab-pane fade" id="video">
-  		<%= render 'video' %>
+  		<%#= render 'video' %>
+      Coming soon...
   </div>
   <div class="tab-pane fade" id="audio">
-  		<%= render 'audio' %>
+  		<%#= render 'audio' %>
+      Coming soon...
   </div>
    <div class="tab-pane fade" id="text">
   		<%= render 'text' %>
   </div>
-  <div class="tab-pane fade" id="url">
-  		<%#= render 'url' %>
-      Coming soon...
+  <div class="tab-pane fade active in" id="url">
+  		<%= render 'url' %>
+   <!--    Coming soon... -->
   </div>
 </div>
 <br/><br/>
