@@ -8,16 +8,21 @@ class LeafsController < ApplicationController
   # GET /leafs.json
   def index
     @ago =  Time.now-3.days 
+    
+
     if current_user && current_user.admin?
-      @leafs = Leaf.all
+      @leafs = Leaf.all.page
     else
-      @leafs = Leaf.where(:live => true) 
+      @leafs = Leaf.where(:live => true).page
     end
-    @leafs = @leafs.where('created_at > ?', @ago ).order("views DESC")
-    @photos = @leafs.where(:type => "photo")
-    @texts = @leafs.where(:type => "text" )
-    @videos = @leafs.where(:type => "video")
-    @audios = @leafs.where(:type => "audio")
+
+      @leafs = @leafs.where('created_at > ?', @ago ).order("views DESC").page(params[:all])
+      @photos = @leafs.where(:type => "photo").page(params[:photos])
+      @texts = @leafs.where(:type => "text" ).page(params[:texts])
+      @videos = @leafs.where(:type => "video").page(params[:videos])
+      @audios = @leafs.where(:type => "audio").page(params[:audios])
+      
+
   end
 
   # GET /leafs/1

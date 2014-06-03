@@ -1,11 +1,11 @@
 <h1>EmbedTree</h1>
 
-<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-<li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-picture" ></i>  All</a></li>
+<ul class="nav nav-tabs" style="margin-bottom: 15px;" id="my_tabs">
+  <li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-picture" ></i>  All</a></li>
   <li class=""><a href="#photos" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
-  <li class=""><a href="#audio" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
-  <li class=""><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
-  <li class=""><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li>
+  <li class=""><a href="#audios" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
+  <li class=""><a href="#texts" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
+  <li class=""><a href="#videos" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li>
   
 </ul>
 
@@ -80,18 +80,23 @@
             </section>
         </section>
       <% end %>
+      <%= paginate @leafs, param_name: :all, :pagination_class => "pagination-large"  %>
       </div>
        <div class="tab-pane fade" id="photos">
         <%= render 'photos' %>
+        <%= paginate @photos, param_name: :photos, :pagination_class => "pagination-large"  %>
       </div>
-      <div class="tab-pane fade" id="text">
+      <div class="tab-pane fade" id="texts">
         <%= render 'texts' %>
+        <%= paginate @texts, param_name: :texts, :pagination_class => "pagination-large"  %>
       </div>
-      <div class="tab-pane fade" id="video">
+      <div class="tab-pane fade" id="videos">
         <%= render 'videos' %>
+        <%= paginate @videos, param_name: :videos, :pagination_class => "pagination-large"  %>
       </div>
-      <div class="tab-pane fade" id="audio">
+      <div class="tab-pane fade" id="audios">
           <%= render 'audios' %>
+          <%= paginate @audios, param_name: :audios, :pagination_class => "pagination-large"  %>
       </div>
       
     </div>  
@@ -102,3 +107,5 @@
   </div>
 
 </article>
+
+
