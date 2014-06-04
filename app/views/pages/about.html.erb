@@ -3,18 +3,26 @@
 <ul class="nav nav-pills">
   <li class="active"><a href="#embedtree" data-toggle="tab">EmbedTree</a></li>
   <li class=""><a href="#terms" data-toggle="tab">Terms & Conditions</a></li>
+  <li><a href="#contact" data-toggle="tab">Contact</a></li>
   <li><a href="#faqs" data-toggle="tab">FAQs</a></li>
 </ul>
 <br/>
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade active in" id="embedtree">
-  	<h2>About Embedtree</h2>
-    <p>EmbedTree is a simple service for sharing rich media online.</p>
-    <p>Content can be shared via url submission or direct upload to EmbedTree. Content is organised adn displayed according to media type (video, photo, audio, test and hyper-links). EmbedTree also collects stats and meta data (views, favourites, plays, tags and clicks etc.) to help organise and promote relevant content.</p>
-    <p>The EmbedTree Team also editorially curates content on EmbedTree e.g. via the featured section.</p>
+  	<h2>About EmbedTree</h2>
+    <p>EmbedTree is a simple service for sharing online.</p>
+    <p>Content can be shared via <%= link_to "url submission or direct upload", upload_path %> to EmbedTree. 
+    </p>
+    <p>
+    Content is organised adn displayed according to media type (video, photo, audio, text and hyper-links). EmbedTree also collects stats and meta data (views, favourites, plays, tags and clicks etc.) to help organise and promote relevant content.</p>
+    <p>The EmbedTree Team also editorially curates content on EmbedTree e.g. via the featured section. You can <a href="#contact" data-toggle="tab">contact the team here</a>.</p>
   </div>
   <div class="tab-pane fade" id="faqs">
     <p>Coming soon...</p>
+  </div>
+  <div class="tab-pane fade" id="contact">
+  	<h2>Contact</h2>
+    <p>Contact EmbedTree via email - embedtree(AT)gmail.com</p>
   </div>
   <div class="tab-pane fade" id="terms">
 

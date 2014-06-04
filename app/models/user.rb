@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
     @profile.save
   end
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
   has_many :photos
-  has_many :leafs
+  has_many :leafs, dependent: :destroy
 
   has_many :user_favs
   # has_many :favourites, :through => :user_favs, :source => :leaf
