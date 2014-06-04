@@ -277,6 +277,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
+    tweet-button (0.1.0)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
@@ -349,6 +350,7 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
+  tweet-button
   twitter-bootstrap-rails
   twitter-bootswatch-rails
   twitter-bootswatch-rails-helpers

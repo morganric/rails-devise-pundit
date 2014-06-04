@@ -29,6 +29,7 @@ gem 'high_voltage', '~> 2.1.0'
 gem 'masonry-rails'
 gem 'embedly'
 gem 'kaminari'
+gem "tweet-button"
 
 group :production do
   gem 'pg'

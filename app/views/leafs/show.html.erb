@@ -42,7 +42,7 @@
     </section>
         
   </div>
-  <div class="col-md-4" id="sidebar">
+  <div class="col-md-4 pull-right" id="sidebar">
 
     <p>
       <%# if @leaf.via_url %>
@@ -51,6 +51,12 @@
           <%= link_to image_tag(@leaf.image.url(:square)), @leaf.url, :target => "_blank", :class => "click"  %>
       <%# end %>
     </p>
+    <div class="pull-right">
+
+        <%= tweet_button( :text => truncate(@leaf.copy, lenght: 100 ), via: "embedtree", :count => "horizontal" ) %>
+       <h6><a href="mailto:embedtree+report@gmail.com?subject=<%= @leaf.url %>">
+        <i class="glyphicon glyphicon-flag"></i>&nbsp;Report this</a></h6>
+    </div>
       <% if UserFav.where(:user_id => current_user.id, :leaf_id => @leaf.id).exists? %>
           <%= link_to raw("<i class='glyphicon glyphicon-heart-empty'></i>  Un-Favourite"), delete_user_favs_path(:user_fav => {:leaf_id => @leaf.id,:user_id => current_user.id}), :remote => true, class: "btn btn-default", :method => :delete %>
       <% else %>
