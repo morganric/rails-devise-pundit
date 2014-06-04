@@ -6,7 +6,7 @@ ENV['GMAIL_USERNAME']='myname@gmail.com'
 ENV['GMAIL_PASSWORD']='secret'
 ENV["MANDRILL_USERNAME"] = 'embedtree@gmail.com'
 ENV["MANDRILL_APIKEY"] = 'rwAbwfwA5Hq77cYr8lXP2g'
-ENV["DOMAIN_NAME"] = 'embedtree.com'
+ENV["DOMAIN_NAME"] = 'www.embedtree.com'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
