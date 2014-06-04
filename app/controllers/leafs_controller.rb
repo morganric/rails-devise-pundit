@@ -22,6 +22,8 @@ class LeafsController < ApplicationController
       @videos = @leafs.where(:type => "video").page(params[:videos])
       @audios = @leafs.where(:type => "audio").page(params[:audios])
       @links = @leafs.where(:type => "link").page(params[:links])
+
+    @featured = @leafs.where(:featured => true).limit(6)
       
 
   end
@@ -76,23 +78,21 @@ class LeafsController < ApplicationController
     else
       @leafs = Leaf.where(:live => true) 
     end
-    @leafs = @leafs.tagged_with(params[:id])
+    @leafs = @leafs.tagged_with(params[:id]).page(params[:all])
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
     @videos = @leafs.where(:type => "video")
     @audios = @leafs.where(:type => "audio")
-
+    @links = @leafs.where(:type => "link").page(params[:links])
+    @featured = @leafs.where(:featured => true).limit(6)
+    
     @tags = Leaf.tag_counts_on(:tags)
     render :action => 'index'
   end
 
   def featured
-    @leafs = Leaf.where(:featured =>  true).order('created_at DESC').limit(9)
-    @photos = @leafs.where(:type => "photo")
-    @texts = @leafs.where(:type => "text" )
-    @videos = @leafs.where(:type => "video")
-    @audios = @leafs.where(:type => "audio")
-
+    @leafs = Leaf.where(:featured =>  true).order('created_at DESC').limit(6)
+    @featured = @leafs.where(:featured => true).limit(6)
     # render :action => 'index'
 
   end

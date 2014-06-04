@@ -4,20 +4,20 @@
   <small>Increasing Serendipity</small>
 </h1>
  <hr/>
-<ul class="nav nav-tabs" style="margin-bottom: 15px;" id="my_tabs">
-  <li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-arrow-up" ></i>  Trending</a></li>
-  <!-- <li class=""><a href="#photos" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
-  <li class=""><a href="#audios" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
-  <li class=""><a href="#texts" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
-  <li class=""><a href="#videos" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Videos</a></li>
-  <li class=""><a href="#links" data-toggle="tab"><i class="glyphicon glyphicon-link    " ></i>  Links</a></li> -->
-  
-</ul>
+
 
 
 <article class="row">
   <div class="col-md-8">
-
+    <ul class="nav nav-tabs" style="margin-bottom: 15px;" id="my_tabs">
+      <li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-arrow-up" ></i>  Trending</a></li>
+      <!-- <li class=""><a href="#photos" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
+      <li class=""><a href="#audios" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
+      <li class=""><a href="#texts" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
+      <li class=""><a href="#videos" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Videos</a></li>
+      <li class=""><a href="#links" data-toggle="tab"><i class="glyphicon glyphicon-link    " ></i>  Links</a></li> -->
+      
+    </ul>
 
   <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active in" id="all">
@@ -111,8 +111,19 @@
     </div>  
   </div>
   <div class="col-md-4">
-    
-
+  <div class="panel panel-success">
+     <div class="panel-heading">
+      <h3>Featured</h3>
+     </div>
+     <div class="panel-body">
+      <% @featured.each do |leaf| %>
+        <h4>
+          <%= link_to truncate(leaf.title, length: 12), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+          <small>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %></small>
+        </h4>
+      <% end %>
+      </div>
+  </div>
   </div>
 
 </article>
