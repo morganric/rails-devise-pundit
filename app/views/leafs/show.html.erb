@@ -54,7 +54,7 @@
     <div class="pull-right">
 
         <%= tweet_button( :text => truncate(@leaf.copy, lenght: 100 ), via: "embedtree", :count => "horizontal" ) %>
-       <h6><a href="mailto:embedtree+report@gmail.com?subject=<%= @leaf.url %>">
+       <h6><a href="mailto:embedtree+report@gmail.com?subject=<%= leaf_url(@leaf) %>">
         <i class="glyphicon glyphicon-flag"></i>&nbsp;Report this</a></h6>
     </div>
       <% if UserFav.where(:user_id => current_user.id, :leaf_id => @leaf.id).exists? %>
