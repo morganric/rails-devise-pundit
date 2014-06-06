@@ -54,7 +54,10 @@
       <br/>
       <%= link_to 'Edit', edit_leaf_path(@leaf) %> | <%= link_to 'Delete', leaf_path(@leaf), method: :delete,  data: { confirm: "Are you sure?" } %>
       </span>
-
+      <p class="pull-right"
+      <h6><a href="mailto:embedtree+report@gmail.com?subject=<%= leaf_url(@leaf) %>">
+        <i class="glyphicon glyphicon-flag"></i>&nbsp;Report this</a></h6>
+      </p>
       <% if @leaf.favourited_by != [] %>
         <h3>Favourited by</h3>
         <% @leaf.favourited_by.each do |fav| %>
