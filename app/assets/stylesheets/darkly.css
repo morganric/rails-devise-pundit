@@ -29,6 +29,11 @@
  	margin-right: 5px;
  }
 
+ ul.social_buttons li {
+  float:left;
+  margin-right: 5px;
+ }
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

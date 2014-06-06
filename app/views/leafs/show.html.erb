@@ -51,10 +51,13 @@
           <%= link_to image_tag(@leaf.image.url(:square)), @leaf.url, :target => "_blank", :class => "click"  %>
       <%# end %>
     </p>
-    <div class="">
-
-        <%= tweet_button( :text => truncate(@leaf.copy, lenght: 100 ), via: "embedtree", :count => "horizontal" ) %>
-    </div>
+    <ul class="nav social_buttons clearfix">
+        <li><%= tweet_button( :text => truncate(@leaf.copy, lenght: 100 ), via: "embedtree", :count => "horizontal" ) %></li>
+        <li><%= like_button(1440239169528450) %></li>
+        <li><%= pinit_button %></li>
+        <li><%= google_plus_button %></li>
+    </ul>
+    <br/>
     <% if current_user %>
       <% if UserFav.where(:user_id => current_user.id, :leaf_id => @leaf.id).exists? %>
           <%= link_to raw("<i class='glyphicon glyphicon-heart-empty'></i>  Un-Favourite"), delete_user_favs_path(:user_fav => {:leaf_id => @leaf.id,:user_id => current_user.id}), :remote => true, class: "btn btn-default", :method => :delete %>

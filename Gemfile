@@ -30,6 +30,7 @@ gem 'masonry-rails'
 gem 'embedly'
 gem 'kaminari'
 gem "tweet-button"
+gem "social-buttons", '~> 0.3'
 
 group :production do
   gem 'pg'
