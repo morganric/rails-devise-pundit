@@ -11,6 +11,7 @@
 //= require masonry/modernizr-transitions
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
+//= require_tree .
 
 $(document).ready(function() {
 	$('.alert, .notice').fadeOut(3000);
