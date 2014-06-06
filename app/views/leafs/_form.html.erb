@@ -12,16 +12,19 @@
     <%= f.input :user_id, as: :hidden %>
     <%= f.input :type, as: :hidden %>
   </div>
-  <% if current_user.admin? %>
-    <%= f.input :live %>
-  <% end %>
   </br/>
-    <div class="field">
-      <%= f.label :tags %>
-      <%= f.text_field :tag_list, :placeholder => "tag1, tag2, tag3 etc." %>
-    </div>
-  <hr/>
+  <div class="field">
+    <%= f.label :tags %>
+    <%= f.text_field :tag_list, :placeholder => "tag1, tag2, tag3 etc." %>
+  </div>
+  <% if current_user.admin? %>
+    <hr/>
+    <%= f.input :live %>
+    <%= f.input :featured %>
+  <% end %>
+  <br/>
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+<br/>

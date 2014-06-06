@@ -1,21 +1,31 @@
 class LeafsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index]
+  before_filter :authenticate_user!, except: [:show, :index, :tag, :featured]
   before_action :set_leaf, only: [:show, :edit, :update, :destroy]
+
+  include LeafsHelper
 
   # GET /leafs
   # GET /leafs.json
   def index
-    @ago =  Time.now-7.days 
+    @ago =  Time.now-3.days 
+    
+
     if current_user && current_user.admin?
-      @leafs = Leaf.all
+      @leafs = Leaf.all.page
     else
-      @leafs = Leaf.where(:live => true) 
+      @leafs = Leaf.where(:live => true).page
     end
-    @leafs = @leafs.where('created_at > ?', @ago ).order("views DESC")
-    @photos = @leafs.where(:type => "photo")
-    @texts = @leafs.where(:type => "text" )
-    @videos = @leafs.where(:type => "video")
-    @audios = @leafs.where(:type => "audio")
+
+      @leafs = @leafs.where('created_at > ?', @ago ).order("views DESC").page(params[:all])
+      @photos = @leafs.where(:type => "photo").page(params[:photos])
+      @texts = @leafs.where(:type => "text" ).page(params[:texts])
+      @videos = @leafs.where(:type => "video").page(params[:videos])
+      @audios = @leafs.where(:type => "audio").page(params[:audios])
+      @links = @leafs.where(:type => "link").page(params[:links])
+
+    @featured = @leafs.where(:featured => true).limit(6)
+      
+
   end
 
   # GET /leafs/1
@@ -68,14 +78,23 @@ class LeafsController < ApplicationController
     else
       @leafs = Leaf.where(:live => true) 
     end
-    @leafs = @leafs.tagged_with(params[:id])
+    @leafs = @leafs.tagged_with(params[:id]).page(params[:all])
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
     @videos = @leafs.where(:type => "video")
     @audios = @leafs.where(:type => "audio")
-
+    @links = @leafs.where(:type => "link").page(params[:links])
+    @featured = @leafs.where(:featured => true).limit(6)
+    
     @tags = Leaf.tag_counts_on(:tags)
     render :action => 'index'
+  end
+
+  def featured
+    @leafs = Leaf.where(:featured =>  true).order('created_at DESC').limit(6)
+    @featured = @leafs.where(:featured => true).limit(6)
+    # render :action => 'index'
+
   end
 
   # POST /leafs
@@ -83,6 +102,10 @@ class LeafsController < ApplicationController
   def create
     @leaf = Leaf.new(leaf_params)
     @leaf.user_id = current_user.id
+
+    if @leaf.via_url
+      url_handler
+    end
 
     respond_to do |format|
       if @leaf.save
@@ -128,6 +151,6 @@ class LeafsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def leaf_params
       params.require(:leaf).permit(:title, :copy, :image, :video, :audio, :url, :via_url,
-       :live, :plays, :views, :user_id, :type, :tag_list)
+       :live, :plays, :views, :user_id, :type, :tag_list, :featured)
     end
 end

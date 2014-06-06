@@ -8,7 +8,7 @@
     <%= f.label :image, "Profile Picture" %>
     <%= f.file_field :image %>
     <%= f.input :website %>
-    <%= f.input :date_of_birth %>
+    <%= f.input :date_of_birth, :start_year => 1930 %>
     <%= f.input :location %>
     <%= f.input :user_id, as: :hidden  %>
     <%= f.input :latitude, as: :hidden %>

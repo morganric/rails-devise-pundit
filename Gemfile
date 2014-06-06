@@ -31,6 +31,10 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'activerecord-session_store'
 gem 'panda', '~> 1.6.0'
+gem 'masonry-rails'
+gem 'embedly'
+gem 'kaminari'
+gem "tweet-button"
 
 group :production do
   gem 'pg'
@@ -49,8 +53,9 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
-  gem "debugger"
+  gem 'debugger'
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 3.0.0.beta2'

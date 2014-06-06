@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140530125744) do
+ActiveRecord::Schema.define(version: 20140602184811) do
+
+  create_table "clicks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "leaf_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
@@ -88,6 +95,15 @@ ActiveRecord::Schema.define(version: 20140530125744) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "user_favs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "leaf_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_favs", ["user_id", "leaf_id"], name: "index_user_favs_on_user_id_and_leaf_id", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @user = @profile.user
-    @public_photos = Photo.where(:user_id => @user.id, :public => true)
+    # @public_photos = Photo.where(:user_id => @user.id, :public => true)
   end
 
   # GET /profiles/new

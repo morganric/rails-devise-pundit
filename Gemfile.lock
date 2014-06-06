@@ -90,6 +90,10 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    embedly (1.9.1)
+      json
+      oauth
+      querystring
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
@@ -133,6 +137,9 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     jwt (1.0.0)
+    kaminari (0.15.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.4.2)
       addressable (~> 2.3)
     less (2.5.0)
@@ -151,6 +158,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    masonry-rails (0.2.1)
+      rails
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
@@ -196,6 +205,7 @@ GEM
       slop (~> 3.4)
     pundit (0.2.3)
       activesupport (>= 3.0.0)
+    querystring (0.1.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -304,6 +314,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.2)
       coffee-rails
+    tweet-button (0.1.0)
     twitter-bootstrap-rails (2.2.8)
       actionpack (>= 3.1)
       execjs
@@ -342,6 +353,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   devise
+  embedly
   factory_girl_rails
   faker
   friendly_id (~> 5.0.0)
@@ -352,9 +364,11 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   launchy
   less-rails
   less-rails-bootstrap
+  masonry-rails
   omniauth
   omniauth-facebook
   omniauth-twitter
@@ -378,6 +392,7 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
+  tweet-button
   twitter-bootstrap-rails
   twitter-bootswatch-rails
   twitter-bootswatch-rails-helpers

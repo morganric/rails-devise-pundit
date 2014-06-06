@@ -1,12 +1,12 @@
+ENV['PANDASTREAM_URL'] = "https://e316004b0285a30b60e3:3165cec2e770620d6973@api.pandastream.com/59058807b78fc5405c6b63cf44140873"
 ENV['ADMIN_NAME'] = 'First User'
 ENV['ADMIN_EMAIL']='user@example.com' 
 ENV['ADMIN_PASSWORD']='changeme'
 ENV['GMAIL_USERNAME']='myname@gmail.com' 
 ENV['GMAIL_PASSWORD']='secret'
-ENV['DOMAIN_NAME'] = 'example.com'
 ENV["MANDRILL_USERNAME"] = 'embedtree@gmail.com'
-ENV["MANDRILL_APIKEY"] = '3mb3dtr339'
-ENV["DOMAIN_NAME"] = 'embedtree.com'
+ENV["MANDRILL_APIKEY"] = 'rwAbwfwA5Hq77cYr8lXP2g'
+ENV["DOMAIN_NAME"] = 'www.embedtree.com'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -69,7 +69,7 @@ Rails.application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  # config.assets.precompile += %w( search.js )
+  config.assets.precompile += %w( search.js application.js application.css)
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -81,15 +81,15 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  
   config.action_mailer.smtp_settings = {
     address: "smtp.mandrillapp.com",
     port: 25,
     domain: Rails.application.secrets.domain_name,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.secrets.email_provider_username,
-    password: Rails.application.secrets.email_provider_password
+    user_name:  "embedtree@gmail.com",# Rails.application.secrets.email_provider_username,
+    password: "rwAbwfwA5Hq77cYr8lXP2g"#, Rails.application.secrets.email_provider_password
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
