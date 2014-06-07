@@ -1,8 +1,8 @@
 <h1>New Leaf</h1>
 
 <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-  <li class=" pull-right"><a href="#photo" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
-  <li class="pull-right"><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
+  <li class="disabled pull-right"><a href="#photo" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
+  <li class="disabled pull-right"><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
   <% if current_user && current_user.admin? %>
   <li class="disabled pull-right"><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li>
   <li class="disabled pull-right"><a href="#audio" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
@@ -13,7 +13,8 @@
 
 <div id="myTabContent" class="tab-content">
   <div class="tab-pane fade " id="photo">
-  		<%= render 'photo' %>
+  		<%#= render 'photo' %>
+       Coming soon...
   </div>
   <div class="tab-pane fade" id="video">
   		<%#= render 'video' %>
@@ -24,7 +25,8 @@
       Coming soon...
   </div>
    <div class="tab-pane fade" id="text">
-  		<%= render 'text' %>
+  		<%#= render 'text' %>
+       Coming soon...
   </div>
   <div class="tab-pane fade active in" id="url">
   		<%= render 'url' %>
