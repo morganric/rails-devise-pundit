@@ -14,6 +14,10 @@ class LeafPolicy
     @user.admin?
   end
 
+  def create?
+    @user.admin?
+  end
+
   def edit?
     @user.admin? || @record.user_id == @user.id
   end
