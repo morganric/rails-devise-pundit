@@ -11,7 +11,7 @@
 //= require masonry/modernizr-transitions
 //= require masonry/box-maker
 //= require masonry/jquery.loremimages.min
-//= require google_dfp
+= require google_dfp
 
 $(document).ready(function() {
 	$('.alert, .notice').fadeOut(3000);
