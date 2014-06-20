@@ -13,6 +13,12 @@
         <%= @profile.location %>
       </p>
     </section>
+    <br/> 
+      <div class="clearfix" >
+        <div id="mpu" class="pull-left">
+          <%= dfp_tag :MPU %>
+        </div>
+      </div>
   </div>
 
   <div class="col-md-8">
@@ -88,6 +94,10 @@
                   <i class="glyphicon glyphicon-pencil"></i>
                    &nbsp;<%= leaf.type %>
                  <% end %>
+                 <% if leaf.type == "link" %> 
+                  <i class="glyphicon glyphicon-link"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
                 </span>
                 <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-eye-open"></i>&nbsp; <%= pluralize(leaf.views, ' view') %></span>
                 <span class="label label-default"><i class="glyphicon glyphicon-white glyphicon-heart"></i>&nbsp; <%= pluralize(leaf.favourited_by.count, ' favourite') %></span>
@@ -133,6 +143,10 @@
                  <% end %>
                  <% if leaf.type == "text" %> 
                   <i class="glyphicon glyphicon-pencil"></i>
+                   &nbsp;<%= leaf.type %>
+                 <% end %>
+                 <% if leaf.type == "link" %> 
+                  <i class="glyphicon glyphicon-link"></i>
                    &nbsp;<%= leaf.type %>
                  <% end %>
                 </span>
