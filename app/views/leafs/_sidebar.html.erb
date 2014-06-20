@@ -1,5 +1,6 @@
 
   <%= link_to truncate(@leaf.url, :length => 40), @leaf.url, :target => "_blank", :class => "click"  %> 
+  <br/>
 
   <!-- <span class="label label-default" > -->
     <!-- <i class="glyphicon glyphicon-play"></i> -->
@@ -42,7 +43,6 @@
    <% if @leaf.live == false %>
               <span class="label label-danger"><i class="glyphicon glyphicon-white glyphicon-flag"></i>&nbsp; Not Live!</span>
             <% end %>
-  <br/> 
   <br/> 
   <div class="tags">
     <% @leaf.tags.each do |tag| %>
