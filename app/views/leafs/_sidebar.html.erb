@@ -46,11 +46,18 @@
                 <% end %>
       <br/> 
       <br/> 
+      <div class="clearfix" >
+        <div id="mpu" class="pull-left">
+          <%= dfp_tag :MPU %>
+        </div>
+      </div>
+      <br/> 
       <div class="tags">
         <% @leaf.tags.each do |tag| %>
           <%= link_to "##{tag}", tagged_posts_path(tag.name), :class => "badge" %>
         <% end %>
       </div>
+
       <br/>
       <%= link_to 'Edit', edit_leaf_path(@leaf) %> | <%= link_to 'Delete', leaf_path(@leaf), method: :delete,  data: { confirm: "Are you sure?" } %>
       </span>
