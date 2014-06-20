@@ -108,7 +108,7 @@ height: 100%;
 /* Ads */
 
 .ads {
-  display: none;
+  display: none !important;
 }
 
 
