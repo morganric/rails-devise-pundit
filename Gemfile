@@ -31,6 +31,7 @@ gem 'embedly'
 gem 'kaminari'
 gem "tweet-button"
 gem "social-buttons", '~> 0.3'
+gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
 
 group :production do
   gem 'pg'

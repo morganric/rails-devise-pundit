@@ -111,19 +111,20 @@
     </div>  
   </div>
   <div class="col-md-4">
-  <div class="panel panel-success">
-     <div class="panel-heading">
-      <h3><%= link_to "Featured", "/featured", :style => "color:white;" %></h3>
-     </div>
-     <div class="panel-body">
-      <% @featured.each do |leaf| %>
-        <h4>
-          <%= link_to truncate(leaf.title, length: 12), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
-          <small>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %></small>
-        </h4>
-      <% end %>
-      </div>
-  </div>
+    <div class="panel panel-success">
+       <div class="panel-heading">
+        <h3><%= link_to "Featured", "/featured", :style => "color:white;" %></h3>
+       </div>
+       <div class="panel-body">
+        <% @featured.each do |leaf| %>
+          <h4>
+            <%= link_to truncate(leaf.title, length: 25), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+            <small><br/>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %></small>
+          </h4>
+        <% end %>
+        </div>
+    </div>
+    <%= dfp_tag :MPU %>
   </div>
 
 </article>

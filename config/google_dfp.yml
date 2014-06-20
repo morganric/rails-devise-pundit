@@ -1,0 +1,28 @@
+# creative with fixed size
+mpu:
+  size: 300x250
+  unit: /123456/mpu
+
+ # two possible creatives
+leaderboard:
+  size: 728x90
+  unit: /10854922/leaderboard
+
+# standard
+MPU:
+  size: 300x250
+  unit: /10854922/MPU
+
+# two possible creatives
+mega_phone:
+  size: 900x250
+  unit: /10854922/mega_phone
+
+# two possible creatives
+bigsize_billboard:
+  size: 728x90 900x250
+  unit: /123456/billboard
+
+# out of page slot (no size)
+oop:
+  unit: /123456/oop
