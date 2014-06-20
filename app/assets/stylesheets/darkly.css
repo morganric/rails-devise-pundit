@@ -105,6 +105,13 @@ height: 100%;
 .flex-video { padding-top: 0; }
 }
 
+/* Ads */
+
+.ads {
+  display: none;
+}
+
+
 #leaderboard {
   margin: 0 auto;
   width:728px;

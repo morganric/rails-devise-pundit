@@ -42,6 +42,6 @@ Rails.application.routes.draw do
     end
 
   unauthenticated do
-    root to: "visitors#index"
+    root to: "leafs#index"
   end
 end
