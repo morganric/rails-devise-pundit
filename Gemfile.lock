@@ -328,7 +328,7 @@ DEPENDENCIES
   embedly
   factory_girl_rails
   faker
-  friendly_id (~> 5.0.0)
+  friendly_id (~> 5.0.1)
   google_dfp!
   guard-bundler
   guard-rails

@@ -9,7 +9,7 @@
 	  		<h3>
 	  			<%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
 	  			<br/>
-	  			<small>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %>
+	  			<small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %>
 	  		</h3>  			
 
 	  </div>

@@ -44,10 +44,10 @@
 
       <ul class="nav nav-tabs" style="margin-bottom: 15px;">
         <li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-picture" ></i>  All</a></li>
-          <li class="disabled"><a href="#photos" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
+         <!--  <li class="disabled"><a href="#photos" data-toggle="tab"><i class="glyphicon glyphicon-camera" ></i>  Photos</a></li>
           <li class="disabled"><a href="#audio" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
           <li class="disabled"><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
-          <li class="disabled"><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li>
+          <li class="disabled"><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li> -->
           <li class=" pull-right"><a href="#favs" data-toggle="tab"><i class="glyphicon glyphicon-heart" ></i>  Favourites</a></li>
       </ul>
 
@@ -120,7 +120,7 @@
                 <span class="col-md-6 pull-left">
                   <h4>
                     <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
-                    <small>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %><br/>
+                    <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %><br/>
                      on <%= leaf.created_at.to_formatted_s(:short)  %></small>
                   </h4>
                   <p class="">

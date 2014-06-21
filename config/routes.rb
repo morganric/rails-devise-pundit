@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :categories
+  resources :user_categories
+
   resources :leafs
 
   post 'clicks' => 'clicks#create', :as => 'clicks'

@@ -10,7 +10,7 @@
       </div>
        <h1>
           <%= link_to @leaf.title, @leaf.url, :target => "_blank", :class => "click" %>
-        <small>by <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
+        <small>via <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
         </h1>
 
       <% if @leaf.via_url && @leaf.embed_code != nil %>

@@ -8,5 +8,14 @@
   <% end %>
 </td>
 <td>
+  <%= simple_form_for(UserCategory.new, remote: true) do |f| %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.hidden_field :user_id, value: user.id %>
+    <%= f.submit 'Change Category', :class => 'button-xs' %>
+  <% end %>
+</td>
+
+
+<td>
   <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button-xs') unless user == current_user %>
 </td>

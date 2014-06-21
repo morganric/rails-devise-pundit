@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602184811) do
+ActiveRecord::Schema.define(version: 20140621111609) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clicks", force: true do |t|
     t.integer  "user_id"
@@ -95,6 +102,15 @@ ActiveRecord::Schema.define(version: 20140602184811) do
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+
+  create_table "user_categories", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_categories", ["category_id", "user_id"], name: "index_user_categories_on_category_id_and_user_id", unique: true
 
   create_table "user_favs", force: true do |t|
     t.integer  "user_id"

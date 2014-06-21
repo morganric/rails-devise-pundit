@@ -12,6 +12,9 @@
  *= require 'masonry/transitions'
 */
 
+.pull-center {
+  text-align: center;
+}
  ul {
  	padding-left: 0px !important;
  }

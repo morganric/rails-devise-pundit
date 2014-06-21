@@ -6,7 +6,7 @@
           <span class="col-md-8 pull-left">
             <h4>
               <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
-              <small>by <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %><br/>
+              <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %><br/>
                on <%= leaf.created_at.to_formatted_s(:short)  %></small>
             </h4>
             <p class="">
