@@ -1,2 +1,2 @@
 <h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
+<p>Name: <%= link_to "#{@user.name if @user.name}", vanity_url_path(@user.name) %></p>
