@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'pages/:id' => 'high_voltage/pages#show',  :as => 'pages'
 
+  get "/media/:type" => "leafs#media", :as => :media
   get "/tagged/:id" => "leafs#tag", :as => :tagged_posts
   get "featured" => "leafs#featured", :as => :featured
 

@@ -54,23 +54,23 @@
             <span class="label label-primary" >
             <% if leaf.type == "audio" %> 
               <i class="glyphicon glyphicon-music"></i>
-               &nbsp;<%= leaf.type %>
+               &nbsp;<%= link_to leaf.type, media_path(leaf.type) %>
              <% end %>
              <% if leaf.type == "video" %> 
               <i class="glyphicon glyphicon-film"></i>
-               &nbsp;<%= leaf.type %>
+               &nbsp;<%= link_to leaf.type, media_path(leaf.type) %>
              <% end %>
              <% if leaf.type == "photo" %> 
               <i class="glyphicon glyphicon-camera"></i>
-               &nbsp;<%= leaf.type %>
+               &nbsp;<%= link_to leaf.type, media_path(leaf.type) %>
              <% end %>
              <% if leaf.type == "text" %> 
               <i class="glyphicon glyphicon-pencil"></i>
-               &nbsp;<%= leaf.type %>
+               &nbsp;<%= link_to leaf.type, media_path(leaf.type) %>
              <% end %>
              <% if leaf.type == "link" %> 
               <i class="glyphicon glyphicon-link"></i>
-               &nbsp;<%= leaf.type %>
+               &nbsp;<%= link_to leaf.type, media_path(leaf.type) %>
              <% end %>
             </span>
             &nbsp;

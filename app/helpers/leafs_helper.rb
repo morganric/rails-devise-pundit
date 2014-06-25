@@ -25,6 +25,10 @@ module LeafsHelper
 			@leaf.type = "audio"
 		end
 
+		if obj[0].title === nil
+			@leaf.title = @leaf.url
+		end
+
 
 		# uploader = ImageUploader.new
 		# uploader.download! @leaf.thumbnail_url

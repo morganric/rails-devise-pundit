@@ -1,5 +1,5 @@
 class LeafsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index, :tag, :featured]
+  before_filter :authenticate_user!, except: [:show, :index, :tag, :featured, :media]
   before_action :set_leaf, only: [:show, :edit, :update, :destroy]
 
   include LeafsHelper
@@ -79,6 +79,24 @@ class LeafsController < ApplicationController
       @leafs = Leaf.where(:live => true) 
     end
     @leafs = @leafs.tagged_with(params[:id]).page(params[:all])
+    @photos = @leafs.where(:type => "photo")
+    @texts = @leafs.where(:type => "text" )
+    @videos = @leafs.where(:type => "video")
+    @audios = @leafs.where(:type => "audio")
+    @links = @leafs.where(:type => "link").page(params[:links])
+    @featured = @leafs.where(:featured => true).limit(6)
+    
+    @tags = Leaf.tag_counts_on(:tags)
+    render :action => 'index'
+  end
+
+  def media
+    if current_user && current_user.admin?
+      @leafs = Leaf.all
+    else
+      @leafs = Leaf.where(:live => true) 
+    end
+    @leafs = @leafs.where(:type => params[:type]).page(params[:all])
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
     @videos = @leafs.where(:type => "video")

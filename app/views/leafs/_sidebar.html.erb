@@ -18,23 +18,23 @@
   <span class="label label-primary" >
     <% if @leaf.type == "audio" %> 
       <i class="glyphicon glyphicon-music"></i>
-       &nbsp;<%= @leaf.type %>
+       &nbsp;<%= link_to @leaf.type, media_path(@leaf.type) %>
      <% end %>
      <% if @leaf.type == "video" %> 
       <i class="glyphicon glyphicon-film"></i>
-       &nbsp;<%= @leaf.type %>
+       &nbsp;<%= link_to @leaf.type, media_path(@leaf.type) %>
      <% end %>
      <% if @leaf.type == "photo" %> 
       <i class="glyphicon glyphicon-camera"></i>
-       &nbsp;<%= @leaf.type %>
+       &nbsp;<%= link_to @leaf.type, media_path(@leaf.type) %>
      <% end %>
      <% if @leaf.type == "text" %> 
       <i class="glyphicon glyphicon-pencil"></i>
-       &nbsp;<%= @leaf.type %>
+       &nbsp;<%= link_to @leaf.type, media_path(@leaf.type) %>
      <% end %>
      <% if @leaf.type == "link" %> 
       <i class="glyphicon glyphicon-link"></i>
-       &nbsp;<%= @leaf.type %>
+       &nbsp;<%= link_to @leaf.type, media_path(@leaf.type) %>
      <% end %>
   </span>
   &nbsp;
@@ -65,7 +65,7 @@
   <hr/>
   <% if @leaf.favourited_by != [] %>
     <h3>Favourited by</h3>
-    <% @leaf.favourited_by.each do |fav| %>
-      <%= link_to fav.profile.display_name, vanity_url_path(fav.name) %>
+    <% @leaf.favourited_by.limit(10).each do |fav| %>
+      <%= link_to image_tag(fav.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(fav.name) %>
     <% end %>
   <% end %>
