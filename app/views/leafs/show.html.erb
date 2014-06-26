@@ -62,7 +62,7 @@
           <%= link_to image_tag(@leaf.image.url(:square)), @leaf.url, :target => "_blank", :class => "click"  %>
       <%# end %>
     </p>
-     <%= link_to truncate(@leaf.url, :length => 40), "#{@leaf.url} <i class='glyphicon glyphicon-share'></i>", :target => "_blank", :class => "click"  %> 
+     <%= link_to raw( " #{truncate(@leaf.url, :length => 40)} <i class='glyphicon glyphicon-share'></i>"), @leaf.url, :target => "_blank", :class => "click"  %> 
     <br/>
     <br/>
 

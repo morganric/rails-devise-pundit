@@ -86,8 +86,8 @@
     </div>
     <div class="tab-pane fade " id="users">
       <% @users.each do |user| %>
-        <%= link_to image_tag(user.profile.image.url(:thumb), :class => 'img-circle'), vanity_url_path(user.name) %>
-        <%= link_to user.profile.display_name, vanity_url_path(user.name) %>
+        <%= link_to image_tag(user.profile.image.url(:thumb) || 'embedtree-logo.png', :class => 'img-circle'), vanity_url_path(user.profile.slug) %>
+        <%= link_to user.profile.display_name, vanity_url_path(user.profile.slug) %>
       <% end %>
       <%= paginate @users, param_name: :all, :pagination_class => "pagination-large"  %>
 
