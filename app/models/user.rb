@@ -32,4 +32,15 @@ class User < ActiveRecord::Base
   has_many :user_categories
   has_many :categories, :through => :user_categories
 
+  searchable do
+      text :name
+      # text :comments do
+      #   comments.map { |comment| comment.body }
+      # end
+
+      string  :sort_name do
+        name.downcase.gsub(/^(an?|the)/, '')
+      end
+  end
+
 end

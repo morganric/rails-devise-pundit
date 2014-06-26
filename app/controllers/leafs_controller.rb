@@ -48,6 +48,11 @@ class LeafsController < ApplicationController
       fulltext params[:q]
     end
 
+    user_search = User.search do
+      fulltext params[:q]
+    end
+
+    @users = user_search.results
     @leafs = search.results
     @featured = Leaf.where(:featured => true).limit(6)
 

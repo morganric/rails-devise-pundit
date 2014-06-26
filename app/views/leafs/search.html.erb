@@ -2,24 +2,21 @@
       <%= dfp_tag :leaderboard %>
       <br/>
 </div>
-<%= image_tag 'embedtree-logo.png', :width => "100", :class => "pull-left" %>
 <h1>
-  EmbedTree<sup> &beta;</sup>
-  <br/>
-  <small>Increasing Serendipity</small>
+  Searched for: <%= params[:q] %>
 </h1>
 <hr/>
-
 
 
 <article class="row">
   <div class="col-md-8">
     <ul class="nav nav-tabs" style="margin-bottom: 15px;" id="my_tabs">
-      <li class="active"><a href="#all" data-toggle="tab"><i class="glyphicon glyphicon-search" ></i>  Results for: "<%= params[:q] %>"</a></li>
+      <li class="active"><a href="#leafs" data-toggle="tab"><i class="glyphicon glyphicon-search" ></i>  Leafs (<%= @leafs.count %>)</a></li>
+      <li class=""><a href="#users" data-toggle="tab"><i class="glyphicon glyphicon-user" ></i>  Users (<%= @users.count %>)</a></li>
     </ul>
 
   <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="all">
+    <div class="tab-pane fade active in" id="leafs">
       <% @leafs.each do |leaf| %>
         <section class="clearfix well">
           <section class="col-md-2 pull-left">
@@ -86,6 +83,14 @@
       <%= paginate @leafs, param_name: :all, :pagination_class => "pagination-large"  %>
       </div>
       
+    </div>
+    <div class="tab-pane fade " id="users">
+      <% @users.each do |user| %>
+        <%= link_to image_tag(user.profile.image.url(:thumb), :class => 'img-circle'), vanity_url_path(user.name) %>
+        <%= link_to user.profile.display_name, vanity_url_path(user.name) %>
+      <% end %>
+      <%= paginate @users, param_name: :all, :pagination_class => "pagination-large"  %>
+
     </div>  
   </div>
   <div class="col-md-4">
