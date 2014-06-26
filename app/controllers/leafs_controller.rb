@@ -1,5 +1,5 @@
 class LeafsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index, :tag, :featured, :media]
+  before_filter :authenticate_user!, except: [:show, :index, :tag, :featured, :media, :search]
   before_action :set_leaf, only: [:show, :edit, :update, :destroy]
 
   include LeafsHelper
