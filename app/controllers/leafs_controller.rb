@@ -42,6 +42,17 @@ class LeafsController < ApplicationController
     @leaf.save
   end
 
+  def search
+
+    search = Leaf.search do
+      fulltext params[:q]
+    end
+
+    @leafs = search.results
+    @featured = Leaf.where(:featured => true).limit(6)
+
+  end
+
   # GET /leafs/new
   def new
     @leaf = Leaf.new

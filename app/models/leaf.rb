@@ -25,4 +25,18 @@ class Leaf < ActiveRecord::Base
     has_many :favourited_by, :through => :user_favs, :source => :user
 
     has_many :clicks
+
+    searchable do
+    	text :title, :copy
+	    # text :comments do
+	    #   comments.map { |comment| comment.body }
+	    # end
+
+	    boolean :featured
+	    integer :user_id
+
+	    string  :sort_title do
+	      title.downcase.gsub(/^(an?|the)/, '')
+	    end
+	end
 end
