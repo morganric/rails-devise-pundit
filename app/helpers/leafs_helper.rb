@@ -29,6 +29,7 @@ module LeafsHelper
 			@leaf.title = @leaf.url
 		end
 
+		debugger
 
 		# uploader = ImageUploader.new
 		# uploader.download! @leaf.thumbnail_url

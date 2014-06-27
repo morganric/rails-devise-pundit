@@ -47,7 +47,10 @@
       <%= link_to "##{tag}", tagged_posts_path(tag.name), :class => "badge" %>
     <% end %>
   </div>
-  <br/>
+    <br/>
+   <label>Short URL: </label> &nbsp;
+    <input value="<%= leaf_url(@leaf.id) %>" cols="60" width="200px">
+      </input>
   <div class="clearfix" >
     <div id="mpu" class="pull-left ads">
       <%= dfp_tag :MPU %>

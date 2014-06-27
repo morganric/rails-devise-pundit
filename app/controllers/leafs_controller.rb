@@ -42,6 +42,22 @@ class LeafsController < ApplicationController
     @leaf.save
   end
 
+  def admin
+
+    @users = User.all
+    @leafs = Leaf.all
+    @views_total = 0
+    @clicks_total = 0
+    @favs_total = 0
+
+    @leafs.each do |leaf|
+      @views_total = @views_total + leaf.views
+      @clicks_total = @clicks_total + leaf.clicks.count
+      @favs_total = @favs_total + leaf.favourited_by.count
+    end
+
+  end
+
   def search
 
     search = Leaf.search do

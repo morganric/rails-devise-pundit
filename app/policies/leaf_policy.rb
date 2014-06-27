@@ -10,6 +10,10 @@ class LeafPolicy
     @user.admin?
   end
 
+  def admin?
+    @user.admin?
+  end
+
   def new?
     @user.admin?
   end

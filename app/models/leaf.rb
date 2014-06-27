@@ -26,6 +26,10 @@ class Leaf < ActiveRecord::Base
 
     has_many :clicks
 
+    def self.policy_class
+	    LeafPolicy
+	 end
+
     searchable do
     	text :title, :copy
 	    # text :comments do

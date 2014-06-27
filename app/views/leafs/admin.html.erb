@@ -1,0 +1,16 @@
+<% if current_user && current_user.admin? %>
+<div class="panel panel-success">
+	<div class="panel-heading">
+		<h1> Admin Goals</h1>
+	</div>
+	<div class="well clearfix">
+		<h2>Users: <%= @users.count %></h2>
+		<h2>Leafs: <%= @leafs.count %></h2>
+		<h2>Views: <%= @views_total %></h2>
+		<h2>Favourites: <%= @favs_total %></h2>
+		<h2>Clicks: <%= @clicks_total %></h2>
+	</div>
+</div>
+<% else %>
+	Nothing growing on here.
+<% end %>
