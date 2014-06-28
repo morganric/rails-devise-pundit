@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :projects
+
   resources :categories
   resources :user_categories
 
   resources :leafs
 
+  get 'admin' => 'leafs#admin', :as => 'admin'
+
+  get 'tedx' => 'projects#tedx', :as => 'tedx'
   post 'search' => 'leafs#search', :as => 'search'
   post 'clicks' => 'clicks#create', :as => 'clicks'
   post 'user_favs' => 'user_favs#create', :as => 'user_favs'
