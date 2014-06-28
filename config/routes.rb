@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'admin' => 'leafs#admin', :as => 'admin'
 
+<<<<<<< HEAD
+=======
+  get 'tedx' => 'projects#tedx', :as => 'tedx'
+>>>>>>> develop
   post 'search' => 'leafs#search', :as => 'search'
   post 'clicks' => 'clicks#create', :as => 'clicks'
   post 'user_favs' => 'user_favs#create', :as => 'user_favs'
