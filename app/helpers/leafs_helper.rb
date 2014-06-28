@@ -16,6 +16,7 @@ module LeafsHelper
 		@leaf.embed_code = obj[0].html
 		@leaf.thumbnail_url = obj[0].thumbnail_url
 		@leaf.remote_image_url = @leaf.thumbnail_url
+		@leaf.provider = obj[0].provider_name
 
 		if obj[0].type === nil || obj[0].type === "link" || obj[0].type === "rich"
 			@leaf.type = "link"
