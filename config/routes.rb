@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :leafs
 
+  get 'admin' => 'leafs#admin', :as => 'admin'
+
   get 'tedx' => 'projects#tedx', :as => 'tedx'
   post 'search' => 'leafs#search', :as => 'search'
   post 'clicks' => 'clicks#create', :as => 'clicks'
