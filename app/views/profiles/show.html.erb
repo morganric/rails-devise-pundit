@@ -5,7 +5,7 @@
   
     <%= image_tag @profile.image.url(:square) %>
 
-    <section class="">
+    <section class="profile-data">
       <p>
         <%= link_to @profile.website, @profile.website, :target => "_blank" %>
       </p>
@@ -14,6 +14,13 @@
       </p>
     </section>
     <br/> 
+    <ul class="nav social_buttons clearfix">
+        <li><%= tweet_button( :text => truncate("Checkout #{@profile.display_name}", lenght: 100 ), via: "embedtree", :count => "horizontal" ) %></li>
+        <li><%= like_button(1440239169528450) %></li>
+        <li><%= pinit_button %></li>
+        <li><%= google_plus_button %></li>
+    </ul>
+    <br/>
       <div class="clearfix" >
         <div id="mpu" class="pull-left ads">
           <%= dfp_tag :MPU %>
@@ -54,7 +61,7 @@
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active in" id="all">
         <ul>
-          <% @profile.user.leafs.order("created_at DESC").each do |leaf| %>
+          <% @leafs.order("created_at DESC").each do |leaf| %>
             <li class="clearfix well">
               <span class="col-md-2 pull-left">
                   <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
@@ -109,6 +116,7 @@
             </li>
           <% end %>  
         </ul>
+        <%= paginate @leafs, param_name: :all, :pagination_class => "pagination-large"  %>
       </div>
       <div class="tab-pane fade" id="favs">
           <ul>

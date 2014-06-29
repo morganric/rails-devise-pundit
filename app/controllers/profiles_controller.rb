@@ -12,6 +12,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @user = @profile.user
+    @leafs = @profile.user.leafs.page(params[:all])
     # @public_photos = Photo.where(:user_id => @user.id, :public => true)
   end
 

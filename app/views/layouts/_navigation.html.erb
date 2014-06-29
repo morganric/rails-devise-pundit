@@ -10,7 +10,7 @@
       </button>
       <%= link_to image_tag('embedtree-logo.png', :width => "40", :class => "pull-left"), root_path %>
       <%= link_to raw('EmbedTree<sup> &beta;eta</sup>'), root_path, class: 'navbar-brand' %>
-      <div class="nav navbar-nav pull-left">
+      <div class="nav navbar-nav">
       <%= form_tag search_path, :method => 'post', :class => "navbar-form navbar-left", :role => "search" do %>
         <div class="form-group">
           <%= text_field_tag :q, params[:q], :class =>"form-control", :placeholder => ""  %>
