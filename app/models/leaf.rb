@@ -7,7 +7,7 @@ class Leaf < ActiveRecord::Base
 	extend FriendlyId
     friendly_id :title, use: [:slugged, :finders]
 
-    validates_uniqueness_of [:slug, :title]
+    # validates_uniqueness_of [:slug, :title]
     validates_format_of :url, :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,  :multiline => true 
 
 	validates_exclusion_of :title, :in => %w( video audio text photo users feeds photos videos items admin oembed api facebook new popular featured favicon superuser 

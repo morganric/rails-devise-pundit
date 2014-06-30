@@ -30,7 +30,8 @@ module LeafsHelper
 			@leaf.title = @leaf.url
 		end
 
-		debugger
+
+		@leaf.tag_list.add(obj[0].type, obj[0].provider_name)
 
 		# uploader = ImageUploader.new
 		# uploader.download! @leaf.thumbnail_url

@@ -159,7 +159,7 @@ class LeafsController < ApplicationController
 
     respond_to do |format|
       if @leaf.save
-        format.html { redirect_to @leaf, notice: 'Leaf was successfully created.' }
+        format.html { redirect_to vanity_leaf_url_path(:id => @leaf.slug, :user_id => current_user.profile.slug), notice: 'Leaf was successfully created.' }
         format.json { render :show, status: :created, location: @leaf }
       else
         format.html { render :new }
