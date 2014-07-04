@@ -2,8 +2,9 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :facebook]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  does_facebook
+   after_filter :allow_iframe
 
+  
   # GET /profiles
   # GET /profiles.json
   def index
@@ -31,8 +32,7 @@ class ProfilesController < ApplicationController
   end
 
   def facebook
-    @fb_app = fb_app
-    @fb_params = fb_params
+    @params = params
   end
 
   # POST /profiles
@@ -85,4 +85,9 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:display_name, :bio, :image, :website, :date_of_birth, :location, :user_id, :latitude, :longitude)
     end
+
+    def allow_iframe
+      response.headers["X-Frame-Options"] = "GOFORIT"
+    end
+
 end
