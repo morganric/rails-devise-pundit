@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index]
+  before_filter :authenticate_user!, except: [:show, :index, :facebook]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
