@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627153511) do
+ActiveRecord::Schema.define(version: 20140701193437) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 20140627153511) do
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "facebook_pages", force: true do |t|
+    t.integer  "user_id"
+    t.string   "fb_page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "facebook_pages", ["user_id", "fb_page_id"], name: "index_facebook_pages_on_user_id_and_fb_page_id", unique: true
 
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false

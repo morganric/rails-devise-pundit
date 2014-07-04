@@ -25,6 +25,12 @@ class ProfilesController < ApplicationController
   def edit
   end
 
+  def apps
+  end
+
+  def facebook
+  end
+
   # POST /profiles
   # POST /profiles.json
   def create
