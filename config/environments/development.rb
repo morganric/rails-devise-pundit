@@ -4,6 +4,8 @@ ENV["GMAIL_USERNAME"] = 'embedtree@gmail.com'
 ENV["MANDRILL_APIKEY"] = 'rwAbwfwA5Hq77cYr8lXP2g'
 ENV["GMAIL_PASSWORD"] = "3mb3dtr339"
 
+OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
