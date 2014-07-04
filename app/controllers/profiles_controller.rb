@@ -2,6 +2,8 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :facebook]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
+  does_facebook
+
   # GET /profiles
   # GET /profiles.json
   def index
@@ -29,6 +31,8 @@ class ProfilesController < ApplicationController
   end
 
   def facebook
+    @fb_app = fb_app
+    @fb_params = fb_params
   end
 
   # POST /profiles

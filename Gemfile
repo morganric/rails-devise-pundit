@@ -35,6 +35,7 @@ gem 'google_dfp', :git => 'git://github.com/digineo/google_dfp.git'
 gem 'sunspot_rails'
 gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in development
 gem 'meta-tags'
+gem "doesfacebook"
 
 group :production do
   gem 'pg'

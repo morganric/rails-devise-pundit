@@ -1,0 +1,34 @@
+# AWEXOME LABS
+# DoesFacebook Configuration File
+#
+# The appropriate application configuration will be loaded for each
+# request based on the callback path of your application. The host
+# of each incoming request will be compared against the callback_url
+# or ssl_callback_url fields of your app.
+#
+# Top-level keys in this file are configuration names. If you have one
+# app for each environment, however, naming an app after the corresponding
+# Rails environment ("development","production",etc.) will provide a
+# fallback should the request host not directly resolve to a callback_url
+#
+
+name_of_app:
+  app_id: 1440239169528450
+  secret_key: 884240b8d9bf9d868a1bd0f0465c90bf
+  namespace: embedtree
+  callback_url: http://localhost:8000/facebook/
+  
+# name_of_another_app:
+#   app_id: 1234567890
+#   secret_key: 1234567890abcdefghijklmnopqrsttuv
+#   namespace: your_canvas_name
+#   callback_url: http://your.dev.server.com/and/path
+  
+name_of_production_app:
+  app_id: 1440239169528450
+  secret_key: 884240b8d9bf9d868a1bd0f0465c90bf
+  namespace: embedtree
+  callback_url: http://www.embedtree.com/facebook/
+  ssl_callback_url: https://www.embedtree.com/facebook/
+  canvas_url: http://www.embedtree.com/facebook/
+  secure_canvas_url: https://www.embedtree.com/facebook/
