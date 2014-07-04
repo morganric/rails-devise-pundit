@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   # resources :facebook_page
 
   post '/facebook_page' => 'facebook_page#create', :as => 'facebook_page'
-  match 'facebook' => 'profiles#facebook', :as => 'facebook'
+  post 'facebook' => 'profiles#facebook', :as => 'facebook'
+  get 'facebook' => 'profiles#facebook', :as => 'facebook_get'
 
   get 'apps' => 'profiles#apps', :as => 'apps'
   get 'admin' => 'leafs#admin', :as => 'admin'
