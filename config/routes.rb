@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post '/facebook_page' => 'facebook_page#create', :as => 'facebook_page'
   post '/facebook' => 'facebook#index', :as => 'facebook'
   get '/facebook' => 'facebook#index', :as => 'facebook_get'
+  scope "/facebook/:id" do
+    get '', to: 'facebook#show', :as => 'facebook_url'
+  end
 
   get 'apps' => 'profiles#apps', :as => 'apps'
   get 'admin' => 'leafs#admin', :as => 'admin'
