@@ -1,0 +1,30 @@
+<div class="row text-center">
+
+    <%= image_tag(@profile.image.url, :class => "img-circle", :width => '150px') if @profile.image.url  %>
+      <h1><%=  @profile.display_name || @profile.user.name  %></h1>
+      <hr/>
+
+  <p class="well">
+    <%= @profile.bio %>
+    <%= @params %>
+    <%= @signed_request %>
+
+  </p>
+
+<% if can? :edit, @profile %>
+  <%= link_to 'Edit', edit_profile_path(@profile) %>
+<% end %>
+
+  <h2>Latest Posts</h2>
+  <hr/>
+
+  <div id="masonry-container" class="transitions-enabled centered clearfix masonry">
+
+      <% @posts.each do |post| %>
+            <%= render 'tree', :post => post %>
+      <% end %>
+  </div>
+
+  <%= paginate @posts %>
+
+</div>
