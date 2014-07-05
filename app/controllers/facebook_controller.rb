@@ -3,7 +3,14 @@ class FacebookController < ApplicationController
 
   after_filter :allow_iframe
 
-    def base64_url_decode str
+
+
+    def index
+    @params = params
+    @profiles = Profile.all
+    @facebook_pages = FacebookPage.all
+
+     def base64_url_decode str
      encoded_str = str.gsub('-','+').gsub('_','/')
      encoded_str += '=' while !(encoded_str.size % 4).zero?
      Base64.decode64(encoded_str)
@@ -13,12 +20,6 @@ class FacebookController < ApplicationController
        encoded_sig, payload = str.split('.')
        data = ActiveSupport::JSON.decode base64_url_decode(payload)
     end
-
-    def index
-    @params = params
-    @profiles = Profile.all
-    @facebook_pages = FacebookPage.all
-
 
     if params.has_key? "signed_request"
 
@@ -54,9 +55,9 @@ class FacebookController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-      @params = params
+     @params = params
      signed_request = params[:signed_request] 
-      @signed_request = decode_data(signed_request)
+     @signed_request = decode_data(signed_request)
     
     if params[:id] != "tagged" #weak
       @profile = Profile.find(params[:id])
