@@ -61,7 +61,7 @@ class FacebookController < ApplicationController
     # @signed_request = decode_data(signed_request)
     
 	@profile = Profile.find(params[:id])
-	@posts = @profile.user.leafs.order("created_at DESC").page(params[:page]).per(6)
+	@leafs = @profile.user.leafs.order("created_at DESC").page(params[:page]).per(6)
     
     respond_to do |format|
       if @profile
