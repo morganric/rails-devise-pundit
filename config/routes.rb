@@ -50,7 +50,7 @@ Rails.application.routes.draw do
     get '', to: 'profiles#show', :as => 'vanity_url'
   end
 
-
+  post '/facebook/:id/:leaf_id' => 'leafs#show', :as => 'leaf_url'
 
   scope ":user_id/:id" do
       get '', to: 'leafs#show', :as => 'vanity_leaf_url'
