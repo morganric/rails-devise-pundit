@@ -15,7 +15,7 @@
           <% @leafs.order("created_at DESC").each do |leaf| %>
             <li class="clearfix well">
               <span class="col-md-2 pull-left">
-                  <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded", vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug), :target => "_blank") %>
+                  <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug), :target => "_blank" %>
               </span>
               <span class="col-md-6 pull-left">
                 <h4>
