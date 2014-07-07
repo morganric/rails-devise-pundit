@@ -59,14 +59,14 @@
       <div class="container well">
         <div class="text-muted" class="col-md-12">
           <ul class="list-unstyled">
-              <li class="pull-left"><%= link_to 'Home', root_path %></li>
-              <li class="pull-left"><%= link_to 'About', page_path('about') %></li>
+              <li class="pull-left"><%= link_to 'Home', root_path, :target => "_blank" %></li>
+              <li class="pull-left"><%= link_to 'About', page_path('about'), :target => "_blank" %></li>
               <li class="pull-left"><%= link_to 'Featured', featured_path %></li>
               <li class="pull-left"><%= link_to 'Upload', upload_path %></li>
-              <li class="pull-right"><%= link_to 'Videos', media_path('video') %></li>
+              <li class="pull-right"><%= link_to 'Videos', media_path('video'), :target => "_blank" %></li>
               <li class="pull-right"><%= link_to 'Audio', media_path('audio') %></li>
-              <li class="pull-right"><%= link_to 'Photos', media_path('photo') %></li>
-              <li class="pull-right"><%= link_to 'Links', media_path('link')%></li>
+              <li class="pull-right"><%= link_to 'Photos', media_path('photo'), :target => "_blank" %></li>
+              <li class="pull-right"><%= link_to 'Links', media_path('link'), :target => "_blank"%></li>
           </ul>
         </div>
         <ul class="list-unstyled">
