@@ -11,17 +11,13 @@
 
   </p>
 
-<% if can? :edit, @profile %>
-  <%= link_to 'Edit', edit_profile_path(@profile) %>
-<% end %>
-
   <h2>Latest Posts</h2>
   <hr/>
 
   <div id="masonry-container" class="transitions-enabled centered clearfix masonry">
 
       <% @posts.each do |post| %>
-            <%= render 'tree', :post => post %>
+            <%= post.url %>
       <% end %>
   </div>
 
