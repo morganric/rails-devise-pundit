@@ -1,21 +1,18 @@
-<div class="row text-center">
+<div class="row clearfix">
 
+<div class="pull-left">
     <%= image_tag(@profile.image.url, :class => "img-circle", :width => '150px') if @profile.image.url  %>
       <h1><%=  @profile.display_name || @profile.user.name  %></h1>
-      <hr/>
 
-  <p class="well">
-    <%= @profile.bio %>
-
-  </p>
-
+  </div>
+</div>
   <hr/>
 
   <ul>
           <% @leafs.order("created_at DESC").each do |leaf| %>
             <li class="clearfix well">
               <span class="col-md-2 pull-left">
-                  <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug), :target => "_blank" %>
+                  <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
               </span>
               <span class="col-md-6 pull-left">
                 <h4>
@@ -69,5 +66,3 @@
         </ul>
 
   <%= paginate @leafs %>
-
-</div>
