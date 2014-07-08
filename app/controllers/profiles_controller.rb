@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
   def show
     @user = @profile.user
     @leafs = @profile.user.leafs.page(params[:all])
+    @facebook = FacebookPage.where(:user_id => @user.id)
     # @public_photos = Photo.where(:user_id => @user.id, :public => true)
   end
 
