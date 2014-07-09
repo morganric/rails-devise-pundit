@@ -1,8 +1,8 @@
 <div class="row clearfix">
 
-<div class="pull-left">
-    <%= image_tag(@profile.image.url, :class => "img-circle", :width => '150px') if @profile.image.url  %>
-      <h1><%=  @profile.display_name || @profile.user.name  %></h1>
+<div class="col-md-12">
+    <h1><%= image_tag(@profile.image.url, :class => "img-circle", :width => '75px') if @profile.image.url  %>
+    <%=  @profile.display_name || @profile.user.name  %></h1>
 
   </div>
 </div>
