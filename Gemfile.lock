@@ -374,6 +374,7 @@ DEPENDENCIES
   simple_form
   social-buttons (~> 0.3)
   spring
+  sprockets-rails
   sqlite3
   sunspot_rails
   sunspot_solr

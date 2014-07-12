@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index, :facebook]
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:show, :index, :facebook, :following, :followers]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :following, :followers]
 
   does_facebook
 
@@ -28,6 +28,20 @@ class ProfilesController < ApplicationController
   end
 
   def apps
+  end
+
+   def following
+    @title = "Following"
+    @user = @profile.user
+    @users = @user.followed_users
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user = @profile.user
+    @users = @user.followers
+    render 'show_follow'
   end
 
   def facebook

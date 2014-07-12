@@ -1,0 +1,33 @@
+<% provide(:title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= image_tag(@user.profile.image.url(:small)) %>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", vanity_url_path(@user.profile.slug) %></span>
+      <span><b>Leafs:</b> <%= @user.leafs.count %></span>
+    </section>
+    <section>
+      <%#= render 'shared/stats' %>
+      <% if @users.any? %>
+        <div class="user_avatars">
+          
+        </div>
+      <% end %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users">
+        <% @users.each do |user| %>
+          <li>
+            <%= link_to image_tag(user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(user.profile.slug) %>
+            <%= link_to user.profile.display_name, vanity_url_path(user.profile.slug) %>
+            <hr/>
+            </li>
+          <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

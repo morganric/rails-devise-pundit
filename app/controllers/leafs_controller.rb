@@ -2,6 +2,8 @@ class LeafsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :tag, :featured, :media, :search]
   before_action :set_leaf, only: [:show, :edit, :update, :destroy]
 
+  after_action :upload_email, only: :create
+
   include LeafsHelper
 
   # GET /leafs
@@ -189,6 +191,13 @@ class LeafsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to leafs_url, notice: 'Leaf was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def upload_email
+    @followers = current_user.followers
+    @followers.each do |follower|
+      UserMailer.upload_email(current_user, follower, @leaf).deliver
     end
   end
 
