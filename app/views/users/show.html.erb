@@ -1,2 +1,37 @@
 <h3>User</h3>
 <p>Name: <%= link_to "#{@user.name if @user.name}", vanity_url_path(@user.profile.slug) %></p>
+
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= following_profile_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.followed_users.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_profile_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
+
+
+<%# unless current_user?(@user) %>
+  <div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%#= render 'unfollow' %>
+    <%= form_for(current_user.relationships.find_by(followed_id: @user.id),
+	             html: { method: :delete }) do |f| %>
+	  <%= f.submit "Unfollow", class: "btn btn-large" %>
+	<% end %>
+  <% else %>
+    <%#= render 'follow' %>
+    <%= form_for(current_user.relationships.build(followed_id: @user.id)) do |f| %>
+	  <div><%= f.hidden_field :followed_id %></div>
+	  <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
+	<% end %>
+  <% end %>
+  </div>
+<%# end %>

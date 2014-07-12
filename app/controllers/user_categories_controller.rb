@@ -1,5 +1,7 @@
 class UserCategoriesController < ApplicationController
 
+	after_action :category_email, only: :create
+
 	def create
 		@user_category = UserCategory.create(user_category_params)
 
@@ -24,6 +26,12 @@ class UserCategoriesController < ApplicationController
 	    end
 	end
 
+ def category_email
+    @user = User.find(user_category_params[:user_id])
+    @category = Category.find(user_category_params[:category_id])
+    UserMailer.category_email(@user, @category).deliver
+    
+  end
 
   private
 

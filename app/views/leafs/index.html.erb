@@ -115,6 +115,7 @@
     </div>  
   </div>
   <div class="col-md-4">
+   <% if @featured.length > 0 %>
     <div class="panel panel-success">
        <div class="panel-heading">
         <h3><%= link_to "Featured", "/featured", :style => "color:white;" %></h3>
@@ -128,6 +129,7 @@
         <% end %>
         </div>
     </div>
+   <% end %>
     <div id="facebook">
       <div class="fb-like-box" data-href="https://www.facebook.com/embedtree" data-width="100%" data-colorscheme="dark" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
 
@@ -136,7 +138,7 @@
       <%= dfp_tag :MPU %>
     </div>
   </div>
-
+  <br/>
 </article>
 
 

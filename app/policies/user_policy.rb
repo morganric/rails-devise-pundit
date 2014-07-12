@@ -10,6 +10,10 @@ class UserPolicy
     @user.admin?
   end
 
+  def followers?
+    true
+  end
+
   def update?
     @user.admin?
   end
