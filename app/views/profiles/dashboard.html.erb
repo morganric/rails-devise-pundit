@@ -1,0 +1,7 @@
+<h1>Dashboard</h1>
+
+<hr/>
+
+<% current_user.followed_users.each do |user| %>
+	<%= user.name %> 
+<% end %>

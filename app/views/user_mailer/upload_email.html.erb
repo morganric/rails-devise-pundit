@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @follower.profile.display_name.capitalize || @follower.name.capitalize %></h1>
+    <p>
+      <%= link_to @uploader.profile.display_name, "www.embedtree.com/#{vanity_url_path(@uploader.profile.slug)}" %> 
+      uploaded a new <%= @leaf.type %> to EmbedTree: <%= link_to @leaf.title, "www.embedtree.com/#{@url}" %>
+    </p>
+    <p>Enjoy!</p>
+    EmbedTree
+  </body>
+</html>

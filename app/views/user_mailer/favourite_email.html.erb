@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @owner.profile.display_name.capitalize || @owner.name.capitalize %></h1>
+    <p>
+      <%= link_to @user.profile.display_name, vanity_url_path(@user.profile.slug) %> favourited your leaf on embedtree.com;
+    </p>
+    <p>
+      <%= link_to @title, "www.embedtree.com/#{@url}" %>.
+    </p>
+    <p>Thanks!</p>
+    EmbedTree
+  </body>
+</html>

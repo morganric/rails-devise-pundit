@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @followed.name %></h1>
+    <p>
+      You have a new follower on EmbedTree: <%= link_to @follower.profile.display_name, vanity_url_path(@follower.profile.slug) %>.<br>
+    </p>
+
+    <p>Thanks,
+
+    EmbedTree
+    </p>
+  </body>
+</html>

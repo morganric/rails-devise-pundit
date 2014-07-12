@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.name.capitalize %></h1>
+    <p>
+      You have been featured in the <%= link_to @category.name.capitalize, "www.embedtree.com/#{@url}" %> category on embedtree.com.
+    </p>
+    <p>
+      Each of your uploads will be featured here.
+    </p>
+    <p>Thanks,
+
+      EmbedTree
+    </p>
+  </body>
+</html>

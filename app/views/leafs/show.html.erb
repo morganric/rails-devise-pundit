@@ -16,7 +16,7 @@
 
       </div>
        <h1>
-          <%= link_to @leaf.title, @leaf.url, :target => "_blank", :class => "click" %>
+          <%= link_to @leaf.title, @leaf.url, :target => "_blank", :class => "click" %><br/>
         <small>via <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
         </h1>
 
