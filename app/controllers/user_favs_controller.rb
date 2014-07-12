@@ -17,7 +17,6 @@ class UserFavsController < ApplicationController
 	def destroy
 
 		@user_fav = UserFav.where(user_fav_params)
-		debugger
 		respond_to do |format|
 	      if @user_fav.first.destroy
 	        format.js { redirect_to :back, notice: 'Fav was successfully created.' }
