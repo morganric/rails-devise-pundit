@@ -30,6 +30,17 @@ class ProfilesController < ApplicationController
   def apps
   end
 
+  def dashboard
+    @followed_users = current_user.followed_users
+    @activities =  []
+    @followed_users.each do |user|
+      @activities << Activity.where(:user_id => user.id)
+    end
+    @activities = @activities[0].order(created_at: :desc)
+
+
+  end
+
    def following
     @title = "Following"
     @user = @profile.user
