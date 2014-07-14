@@ -1,5 +1,6 @@
 <h3>User</h3>
 <p>Name: <%= link_to "#{@user.name if @user.name}", vanity_url_path(@user.profile.slug) %></p>
+<span><b>Leafs:</b> <%= @user.leafs.count %></span>
 
 <% @user ||= current_user %>
 <div class="stats">

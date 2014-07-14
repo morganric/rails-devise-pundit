@@ -1,6 +1,7 @@
 class UserFavsController < ApplicationController
 
 	after_action :fav_email, only: :create
+	after_action :fav_action, only: :create
 
 	def create
 		@user_fav = UserFav.create(user_fav_params)
@@ -30,6 +31,11 @@ class UserFavsController < ApplicationController
 		@profile = current_user.profile
 		@leaf = Leaf.find(params[:user_fav][:leaf_id])
 		UserMailer.favourite_email(@profile.user, @leaf).deliver
+	end
+
+	def fav_action
+		Activity.create!(:user_id => current_user.id, 
+			:other_id => user_fav_params[:user_id], :leaf_id => user_fav_params[:leaf_id], :action => "Favourited")
 	end
 
   private

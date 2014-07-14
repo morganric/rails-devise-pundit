@@ -3,6 +3,7 @@ class LeafsController < ApplicationController
   before_action :set_leaf, only: [:show, :edit, :update, :destroy]
 
   after_action :upload_email, only: :create
+  after_action :upload_action, only: :create
 
   include LeafsHelper
 
@@ -199,6 +200,12 @@ class LeafsController < ApplicationController
     @followers.each do |follower|
       UserMailer.upload_email(current_user, follower, @leaf).deliver
     end
+  end
+
+
+  def upload_action
+    Activity.create!(:user_id => current_user.id, 
+      :other_id => leaf_params[:user_id], :leaf_id => @leaf.id, :action => "Uploaded")
   end
 
   private

@@ -2,6 +2,7 @@ class RelationshipsController < ApplicationController
   # before_action :signed_in_user
 
   after_action :follow_email, only: :create
+  after_action :follow_action, only: :create
 
   def create
     @user = User.find(params[:relationship][:followed_id])
@@ -19,5 +20,11 @@ class RelationshipsController < ApplicationController
     @follower = current_user
     @followed = User.find(params[:relationship][:followed_id])
     UserMailer.follower_email(@followed, @follower).deliver
+  end
+
+
+  def follow_action
+    Activity.create!(:user_id => current_user.id, 
+      :other_id => params[:relationship][:followed_id], :action => "Followed")
   end
 end

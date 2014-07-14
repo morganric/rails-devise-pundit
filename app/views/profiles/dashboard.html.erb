@@ -2,6 +2,38 @@
 
 <hr/>
 
+<<<<<<< HEAD
 <% current_user.followed_users.each do |user| %>
 	<%= user.name %> 
 <% end %>
+=======
+<div class="row" >
+<div class="col-md-8">
+	<ul>
+		<% @activities.limit(10).each do |activity| %>
+			<% if activity.action === "Followed" %>
+			<li class="well">
+			<h3>
+			<%= link_to image_tag(activity.user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>
+			<%= link_to activity.user.profile.display_name, vanity_url_path(activity.user.profile.slug) %> <%= activity.action %>:</h3>
+			<%= link_to image_tag(activity.other.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>
+			<%= link_to activity.other.profile.display_name, vanity_url_path(activity.other.profile.slug) %><br/>	
+			<%= pluralize(((Time.now - activity.created_at) / 1.hour).round,  "hour") %> ago.
+			</li>
+			<% else %>
+			<li class="well">
+			<h3>
+			<%= link_to image_tag(activity.user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>
+			<%= link_to activity.user.profile.display_name, vanity_url_path(activity.user.profile.slug) %> <%= activity.action %>:</h3>
+			<%= link_to activity.leaf.title, vanity_leaf_url_path(:id => activity.leaf.slug, :user_id => activity.other_id) %><br/>	
+			<%= pluralize(((Time.now - activity.created_at) / 1.hour).round,  "hour") %> ago.
+			</li>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
+<div class="col-md-4">
+
+</div>
+</div>
+>>>>>>> develop
