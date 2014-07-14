@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # resources :facebook_page
 
   post '/facebook_page' => 'facebook_page#create', :as => 'facebook_page'
+  
   scope "/facebook/:id" do
     get '', to: 'facebook#show', :as => 'facebook_url'
+  end
 
   post '/facebook' => 'profiles#facebook', :as => 'facebook'
   get '/facebook' => 'profiles#facebook', :as => 'facebook_get'
