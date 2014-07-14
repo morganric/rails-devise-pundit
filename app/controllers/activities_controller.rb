@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class ActivityController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_activity
   
