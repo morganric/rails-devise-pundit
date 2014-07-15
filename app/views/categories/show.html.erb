@@ -13,8 +13,8 @@
 	<% @category.users.each do |user| %>
 		<div class="col-md-3 pull-center" >
 			<br/>
-			<%= link_to image_tag(user.profile.image.url(:small), class: "img-circle"), vanity_url_path(user.name) %>
-			<h3><%= link_to user.profile.display_name, vanity_url_path(user.name) %></h3>
+			<%= link_to image_tag(user.profile.image.url(:small), class: "img-circle"), vanity_url_path(user.profile.slug) %>
+			<h3><%= link_to user.profile.display_name, vanity_url_path(user.profile.slug) %></h3>
 			<% user.leafs.limit(3).each do |leaf| %>
 				<%= link_to image_tag(leaf.image.url(:small), width: 60, class: "img-thumbnail"), leaf %>
 			<% end %>
