@@ -34,7 +34,7 @@
           <section class="col-md-7 pull-left">
             <h4>
               <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
-              <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %>
+              <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %>
               <br/>
                on <%= leaf.created_at.to_formatted_s(:short)  %>
                <span class="tags">
