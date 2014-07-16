@@ -16,6 +16,11 @@
 $(document).ready(function() {
 	$('.alert, .notice').fadeOut(3000);
 
+	$('input#post').on('click', function(){
+		console.log("sent");
+		// $('#inbox').html('<%= escape_javascript(render("messages")) %>');
+	});
+
 
 	$('#masonry-container').masonry({
 	  itemSelector: '.box',

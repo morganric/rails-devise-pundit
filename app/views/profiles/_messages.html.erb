@@ -1,0 +1,24 @@
+<div class="panel">
+          <%= form_tag("/message", method: "post", remote: true, :class => "well") do |f| %>
+            <%= hidden_field_tag :subject, "Subject" %>
+            <%= text_area_tag :body, nil, rows: 5, cols: 85 %>
+
+            <br/>
+            <%= hidden_field_tag(:user_id, @profile.user.id) %>
+            
+            <br/>
+            <%= submit_tag("Post", :class => "pull-right", :id => "post") %>
+            <br/>
+        <% end %>
+</div>
+<ul>
+  <% @receipts.each do |r| %>
+    <li class="well" >
+    
+    <%= r.first.message.body %><hr/>
+    <%= link_to image_tag(r.first.message.sender.profile.image.url(:thumb),
+     :class => "img-circle"), vanity_url_path(r.first.message.sender.profile.slug) %>
+    <%= link_to r.first.message.sender.name, vanity_url_path(r.first.message.sender.profile.slug) %>
+    </li>
+  <% end %>
+</ul>

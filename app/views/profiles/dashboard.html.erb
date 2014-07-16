@@ -7,7 +7,7 @@
 <div class="col-md-8">
 	<ul>
 		<% @activities.limit(10).each do |activity| %>
-			<% if activity.action === "Followed" %>
+			<% if activity.action === "Followed" || activity.action === "Messaged" %>
 			<li class="well">
 			<h3>
 			<%= link_to image_tag(activity.user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>

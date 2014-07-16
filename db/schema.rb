@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714072901) do
+ActiveRecord::Schema.define(version: 20140715192611) do
 
   create_table "activities", force: true do |t|
     t.string   "action"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20140714072901) do
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "discussions", force: true do |t|
+    t.integer  "messages_count",   default: 0
+    t.integer  "discussable_id"
+    t.string   "discussable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "facebook_pages", force: true do |t|
     t.integer  "user_id"
     t.string   "fb_page_id"
@@ -79,6 +87,60 @@ ActiveRecord::Schema.define(version: 20140714072901) do
 
 # Could not dump table "leafs" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "mailboxer_conversation_opt_outs", force: true do |t|
+    t.integer "unsubscriber_id"
+    t.string  "unsubscriber_type"
+    t.integer "conversation_id"
+  end
+
+  create_table "mailboxer_conversations", force: true do |t|
+    t.string   "subject",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "mailboxer_notifications", force: true do |t|
+    t.string   "type"
+    t.text     "body"
+    t.string   "subject",              default: ""
+    t.integer  "sender_id"
+    t.string   "sender_type"
+    t.integer  "conversation_id"
+    t.boolean  "draft",                default: false
+    t.string   "notification_code"
+    t.integer  "notified_object_id"
+    t.string   "notified_object_type"
+    t.string   "attachment"
+    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                           null: false
+    t.boolean  "global",               default: false
+    t.datetime "expires"
+  end
+
+  add_index "mailboxer_notifications", ["conversation_id"], name: "index_mailboxer_notifications_on_conversation_id"
+
+  create_table "mailboxer_receipts", force: true do |t|
+    t.integer  "receiver_id"
+    t.string   "receiver_type"
+    t.integer  "notification_id",                            null: false
+    t.boolean  "is_read",                    default: false
+    t.boolean  "trashed",                    default: false
+    t.boolean  "deleted",                    default: false
+    t.string   "mailbox_type",    limit: 25
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+  end
+
+  add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
+
+  create_table "messages", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photos", force: true do |t|
     t.string   "title"
@@ -139,6 +201,13 @@ ActiveRecord::Schema.define(version: 20140714072901) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at"
+
+  create_table "speakers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "discussion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"

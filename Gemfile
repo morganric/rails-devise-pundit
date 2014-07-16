@@ -37,6 +37,8 @@ gem 'sunspot_solr' # optional pre-packaged Solr distribution for use in developm
 gem 'meta-tags'
 gem "doesfacebook"
 gem "sprockets-rails"
+gem 'mailboxer'
+
 
 group :production do
   gem 'pg'
