@@ -1,0 +1,20 @@
+%h1 Discussions list
+%table
+  %tr
+    %th Last message
+    %th Members
+    %th Unread
+  - @discussions.each do |discussion|
+    %tr
+      %td
+        = discussion.updated_at
+      %td
+        = link_to discussion.users.collect{|u| u[Inboxes::config.user_name]}.join(', '), discussion
+      %td
+        - if discussion.unread_for?(current_user)
+          = pluralize(discussion.unread_messages_count_for(current_user), "message")
+        - else
+          No unread messages
+
+%p
+  = link_to "Create new", new_discussion_path

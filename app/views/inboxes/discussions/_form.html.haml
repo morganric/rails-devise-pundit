@@ -1,0 +1,12 @@
+= form_for @discussion do |f|
+  %p
+    = f.label :recipient_tokens
+    %br
+    = select_tag "discussion[recipient_tokens]", options_from_collection_for_select(User.all, :id, Inboxes::config.user_name), :multiple => true, :size => "4"
+  %p
+    = f.fields_for :messages do |j|
+      = j.label :body
+      %br
+      = j.text_area :body
+
+  %p= f.submit
