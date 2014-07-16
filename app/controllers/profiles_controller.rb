@@ -1,6 +1,8 @@
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index, :facebook, :following, :followers]
+  before_filter :authenticate_user!, except: [:show, :index, :facebook, :following, :followers, :message]
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :following, :followers]
+
+  after_action :message_action, only: :message
 
   does_facebook
 
@@ -16,6 +18,13 @@ class ProfilesController < ApplicationController
     @user = @profile.user
     @leafs = @profile.user.leafs.page(params[:all])
     # @public_photos = Photo.where(:user_id => @user.id, :public => true)
+    @conversations = @user.mailbox.inbox
+    @receipts = []
+
+    @conversations.limit(6).each do |convo|
+      @receipts << convo.receipts_for(@user)
+    end
+
   end
 
   # GET /profiles/new
@@ -28,6 +37,18 @@ class ProfilesController < ApplicationController
   end
 
   def apps
+  end
+
+  def message
+
+    @user = User.find(params[:user_id])
+    current_user.send_message(@user, params[:body], params[:subject])
+    
+    respond_to do |format|
+      format.html { redirect_to vanity_url_path(@user.profile.slug), notice: 'Sent.' }  
+      format.js { redirect_to vanity_url_path(@user.profile.slug), notice: 'Sent.' }
+    end
+
   end
 
   def dashboard
@@ -98,6 +119,11 @@ class ProfilesController < ApplicationController
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def message_action
+    Activity.create!(:user_id => current_user.id, 
+      :other_id => params[:user_id], :action => "Messaged")
   end
 
   private
