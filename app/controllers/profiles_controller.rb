@@ -2,13 +2,10 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :facebook, :following, :followers, :message]
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :following, :followers]
 
-<<<<<<< HEAD
-   after_filter :allow_iframe
-=======
+  after_filter :allow_iframe
   after_action :message_action, only: :message
 
   does_facebook
->>>>>>> develop
 
   
   # GET /profiles
