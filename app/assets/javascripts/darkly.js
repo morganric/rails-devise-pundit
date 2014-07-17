@@ -21,6 +21,11 @@ $(document).ready(function() {
 		// $('#inbox').html('<%= escape_javascript(render("messages")) %>');
 	});
 
+	$('input#comment').on('click', function(){
+		console.log("commented");
+		setTimeout(function(){location.reload();}, 2000);
+		// $('#comments').html('<%=j render partial: "comments" %>')''
+	});
 
 	$('#masonry-container').masonry({
 	  itemSelector: '.box',
