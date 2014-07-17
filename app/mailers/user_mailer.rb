@@ -39,5 +39,12 @@ class UserMailer < ActionMailer::Base
     mail(to: @user.email, subject: 'EmbedTree Category Feature')
   end
 
-
+  def comment_email(commenter, user, leaf)
+    @commenter = commenter
+    @leaf = leaf
+    @user = user
+    @title = leaf.title
+    @url  = vanity_leaf_url_path(:id => @leaf.slug, :user_id => leaf.user.profile.slug)
+    mail(to: @user.email, subject: 'New EmbedTree Comment')
+  end 
 end

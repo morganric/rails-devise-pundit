@@ -4,6 +4,8 @@ class LeafsController < ApplicationController
 
   after_action :upload_email, only: :create
   after_action :upload_action, only: :create
+  after_action :comment_email, only: :comment
+  after_action :comment_action, only: :comment
 
   include LeafsHelper
 
@@ -31,6 +33,17 @@ class LeafsController < ApplicationController
 
   end
 
+  def comment
+    @leaf = Leaf.find(params[:leaf_id])
+    @comment = Comment.build_from(@leaf, current_user.id, params[:body])
+    @comment.save
+
+     respond_to do |format|
+      format.html { redirect_to vanity_leaf_url_path(:id => @leaf.id, :user_id => @leaf.user.id), notice: 'Posted.' }  
+      format.js { redirect_to vanity_leaf_url_path(:id => @leaf.id, :user_id => @leaf.user.id), notice: 'Posted.' }
+    end
+  end
+
   # GET /leafs/1
   # GET /leafs/1.json
   def show
@@ -43,6 +56,8 @@ class LeafsController < ApplicationController
 
     @leaf.views += 1
     @leaf.save
+
+     @comments = @leaf.comment_threads
   end
 
   def admin
@@ -202,11 +217,23 @@ class LeafsController < ApplicationController
     end
   end
 
+  def comment_email
+      UserMailer.comment_email(current_user, @leaf.user, @leaf).deliver
+  end
+
 
   def upload_action
     Activity.create!(:user_id => current_user.id, 
       :other_id => leaf_params[:user_id], :leaf_id => @leaf.id, :action => "Uploaded")
   end
+
+   def comment_action
+
+    @leaf = Leaf.find(params[:leaf_id])
+    Activity.create!(:user_id => current_user.id, 
+      :other_id => @leaf.user.id, :leaf_id => @leaf.id, :action => "Commented on")
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,6 +1,7 @@
 class Leaf < ActiveRecord::Base
 	require 'acts-as-taggable-on'
 	acts_as_taggable
+	acts_as_commentable
 
 	paginates_per 5
 
