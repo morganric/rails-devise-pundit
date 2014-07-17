@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/facebook' => 'profiles#facebook', :as => 'facebook_get'
   get '/dashboard' => 'profiles#dashboard', :as => 'dashboard'
   post '/message' => 'profiles#message', :as => 'message'
+  post '/comment' => 'leafs#comment', :as => 'comment'
 
   get 'apps' => 'profiles#apps', :as => 'apps'
   get 'admin' => 'leafs#admin', :as => 'admin'

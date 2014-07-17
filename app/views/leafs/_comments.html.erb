@@ -1,0 +1,22 @@
+      <br/>
+    <div class="panel">
+          <%= form_tag("/comment", method: "post", remote: true, :class => "well") do |f| %>
+            <%= text_area_tag :body, nil, rows: 5, cols: 85 %>
+
+            <br/>
+            <%= hidden_field_tag(:leaf_id, @leaf.id) %>
+            
+            <br/>
+            <%= submit_tag("Comment", :class => "pull-right", :id => "comment") %>
+            <br/>
+        <% end %>
+    </div>
+    <ul>
+      <% @comments.reverse[0..5].each do |comment| %>
+        <li class="well" >
+        <%= comment.body %><hr/>
+        by <%= link_to image_tag(comment.user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(comment.user.profile.slug) %> 
+        <%= link_to comment.user.profile.display_name, vanity_url_path(comment.user.profile.slug) %>
+        </li>
+      <% end %>
+    </ul>

@@ -38,6 +38,8 @@ gem 'meta-tags'
 gem "doesfacebook"
 gem "sprockets-rails"
 gem 'mailboxer'
+gem 'acts_as_commentable_with_threading'
+gem "awesome_nested_set", '~> 3.0.0.rc.3'
 
 
 group :production do

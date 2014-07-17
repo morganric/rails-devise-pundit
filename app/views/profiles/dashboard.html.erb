@@ -11,17 +11,20 @@
 			<li class="well">
 			<h3>
 			<%= link_to image_tag(activity.user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>
-			<%= link_to activity.user.profile.display_name, vanity_url_path(activity.user.profile.slug) %> <%= activity.action %>:</h3>
+			<%= link_to activity.user.profile.display_name, vanity_url_path(activity.user.profile.slug) %> <%= activity.action %>:<br/><br/>
 			<%= link_to image_tag(activity.other.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>
-			<%= link_to activity.other.profile.display_name, vanity_url_path(activity.other.profile.slug) %><br/>	
+			<%= link_to activity.other.profile.display_name, vanity_url_path(activity.other.profile.slug) %>
+			</h3> <hr/>	
 			<%= pluralize(((Time.now - activity.created_at) / 1.hour).round,  "hour") %> ago.
 			</li>
 			<% else %>
 			<li class="well">
 			<h3>
 			<%= link_to image_tag(activity.user.profile.image.url(:thumb), :class => "img-circle"), vanity_url_path(activity.user.profile.slug) %>
-			<%= link_to activity.user.profile.display_name, vanity_url_path(activity.user.profile.slug) %> <%= activity.action %>:</h3>
-			<%= link_to activity.leaf.title, vanity_leaf_url_path(:id => activity.leaf.slug, :user_id => activity.other_id) %><br/>	
+			<%= link_to activity.user.profile.display_name, vanity_url_path(activity.user.profile.slug) %> <%= activity.action %>:</br><br/>
+			<%= link_to image_tag(activity.leaf.image.url(:thumb), :class => "img-rounded"), vanity_leaf_url_path(:id => activity.leaf.slug, :user_id => activity.other_id) %>
+			<%= link_to activity.leaf.title, vanity_leaf_url_path(:id => activity.leaf.slug, :user_id => activity.other_id) %>
+			</h3><hr/>	
 			<%= pluralize(((Time.now - activity.created_at) / 1.hour).round,  "hour") %> ago.
 			</li>
 			<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715192611) do
+ActiveRecord::Schema.define(version: 20140717132125) do
 
   create_table "activities", force: true do |t|
     t.string   "action"
@@ -43,12 +43,16 @@ ActiveRecord::Schema.define(version: 20140715192611) do
 
   create_table "comments", force: true do |t|
     t.string   "title",            limit: 50, default: ""
-    t.text     "comment"
+    t.text     "body"
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "subject"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
   end
 
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello <%= @user.profile.display_name.capitalize || @user.name.capitalize %></h1>
+    <p>
+      <%= link_to @commenter.profile.display_name, "www.embedtree.com/#{vanity_url_path(@commenter.profile.slug)}" %> 
+      commented on <%= link_to @leaf.title, "www.embedtree.com/#{@url}" %>
+    </p>
+    <p>Thanks,</p>
+    EmbedTree
+  </body>
+</html>
