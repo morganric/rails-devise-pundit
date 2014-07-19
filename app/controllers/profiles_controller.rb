@@ -25,6 +25,13 @@ class ProfilesController < ApplicationController
       @receipts << convo.receipts_for(@user)
     end
 
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "GpD8bwv1j8e6R2NhsJ9xZAC4a"
+      config.consumer_secret     = "ah2efRJhtvgBh1czICI7i8dGybVgnXUyIC4DU5lRGPt7iweaaL"
+      config.access_token        = @profile.user.twitter_token
+      config.access_token_secret = @profile.user.twitter_secret
+    end
+    @twitter = client.user(@profile.twitter_handle)
   end
 
   # GET /profiles/new
@@ -134,6 +141,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:display_name, :bio, :image, :website, :date_of_birth, :location, :user_id, :latitude, :longitude)
+      params.require(:profile).permit(:display_name, :bio, :image, :website,
+       :date_of_birth, :location, :user_id, :latitude, :longitude, :twitter_handle)
     end
 end

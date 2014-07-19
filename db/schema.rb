@@ -11,11 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140717132125) do
-=======
+
+
 ActiveRecord::Schema.define(version: 20140719094242) do
->>>>>>> feature/omniauth
 
   create_table "activities", force: true do |t|
     t.string   "action"

@@ -6,6 +6,12 @@
     <%= image_tag(@profile.image.url(:square) || "embedtree-logo-green.png") %>
 
     <section class="profile-data">
+    <br/>
+      <p>
+      <% if @twitter != nil %>
+      <%= link_to "@#{@twitter.user_name}", "#{@twitter.uri}" %>
+      <% end %>
+      </p>
       <p>
         <%= link_to @profile.website, @profile.website, :target => "_blank" %>
       </p>
@@ -55,6 +61,9 @@
         <div id="mpu" class="pull-left ads">
           <%= dfp_tag :MPU %>
         </div>
+      </div>
+      <div class="twitter">
+          <%= @twitter %>
       </div>
   </div>
 
