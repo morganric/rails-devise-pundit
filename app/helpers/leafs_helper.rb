@@ -1,5 +1,7 @@
 module LeafsHelper
 
+	include ActionView::Helpers::TextHelper
+
 	require 'embedly'
 	require 'json'
 	require 'open-uri'
@@ -37,6 +39,23 @@ module LeafsHelper
 		# uploader.download! @leaf.thumbnail_url
 		# uploader.store!
 
+	end
+
+	def upload_tweet
+
+	@user = @leaf.user
+	@profile = @user.profile
+
+	if @user.provider = "twitter"
+		@client = Twitter::REST::Client.new do |config|
+	      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
+	      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
+	      config.access_token        = @profile.user.twitter_token
+	      config.access_token_secret = @profile.user.twitter_secret
+	    end
+	    @title = truncate(@leaf.title, lenght: 80)
+	    @client.update("Just uploaded #{@title} to @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+	end
 	end
 
 end

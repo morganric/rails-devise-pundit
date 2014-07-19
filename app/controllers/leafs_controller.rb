@@ -1,11 +1,12 @@
 class LeafsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :tag, :featured, :media, :search]
-  before_action :set_leaf, only: [:show, :edit, :update, :destroy]
+  before_action :set_leaf, only: [:show, :edit, :update, :destroy, :upload_tweet]
 
   after_action :upload_email, only: :create
   after_action :upload_action, only: :create
   after_action :comment_email, only: :comment
   after_action :comment_action, only: :comment
+  after_action :upload_tweet, only: :create
 
   include LeafsHelper
 

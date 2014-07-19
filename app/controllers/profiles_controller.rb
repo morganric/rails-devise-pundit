@@ -25,13 +25,14 @@ class ProfilesController < ApplicationController
       @receipts << convo.receipts_for(@user)
     end
 
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = "GpD8bwv1j8e6R2NhsJ9xZAC4a"
-      config.consumer_secret     = "ah2efRJhtvgBh1czICI7i8dGybVgnXUyIC4DU5lRGPt7iweaaL"
+    @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
+      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
       config.access_token        = @profile.user.twitter_token
       config.access_token_secret = @profile.user.twitter_secret
     end
-    @twitter = client.user(@profile.twitter_handle)
+    @twitter = @client.user(@profile.twitter_handle)
+
   end
 
   # GET /profiles/new
