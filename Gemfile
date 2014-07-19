@@ -26,6 +26,11 @@ gem 'cloudinary'
 gem "friendly_id", "~> 5.0.1"
 gem 'acts-as-taggable-on'
 gem 'high_voltage', '~> 2.1.0'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'activerecord-session_store'
+gem 'panda', '~> 1.6.0'
 gem 'masonry-rails'
 gem 'embedly'
 gem 'kaminari'
@@ -40,7 +45,7 @@ gem "sprockets-rails"
 gem 'mailboxer'
 gem 'acts_as_commentable_with_threading'
 gem "awesome_nested_set", '~> 3.0.0.rc.3'
-
+gem "twitter"
 
 group :production do
   gem 'pg'
@@ -61,6 +66,7 @@ group :development do
   gem 'rb-inotify', :require=>false
   gem 'debugger'
 end
+
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 3.0.0.beta2'

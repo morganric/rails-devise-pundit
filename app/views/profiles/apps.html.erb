@@ -1,6 +1,9 @@
 <h1>EmbedTree Apps</h1>
 <hr/>
-<button id="fb-button" class="btn btn-info">Create Facebook Page Tab</button>
+
+<button id="fb-button" class="btn btn-info">Connect Facebook Page Tab</button>
+<br/><br/>
+<%= button_to "Connect with Twitter", user_omniauth_authorize_path(:twitter), :class => "btn btn-info" %>
 
 <script>
   window.fbAsyncInit = function() {

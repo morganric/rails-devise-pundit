@@ -1,7 +1,10 @@
 class UserFavsController < ApplicationController
 
+	include LeafsHelper
+
 	after_action :fav_email, only: :create
 	after_action :fav_action, only: :create
+	after_action :fav_tweet, only: :create
 
 	def create
 		@user_fav = UserFav.create(user_fav_params)
