@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get 'leafs/new/photo', to: "leafs#photo", as: "new_photo"
   get 'leafs/new/text', to: "leafs#text", as: "new_text"
 
-  devise_for :users
+  devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
   resources :users
   resources :profiles do
     member do
@@ -46,7 +46,13 @@ Rails.application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
+  
+
   # resources :photos
+
+  devise_scope :user do
+    get 'sign_out', :to => 'devise/sessions#destroy'
+  end
 
   resources :profiles, shallow: true do
     resources :leafs, :only =>[:show]
