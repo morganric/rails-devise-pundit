@@ -8,7 +8,9 @@
     <section class="profile-data">
     <br/>
       <p>
+      <% if @twitter != nil %>
       <%= link_to "@#{@twitter.user_name}", "#{@twitter.uri}" %>
+      <% end %>
       </p>
       <p>
         <%= link_to @profile.website, @profile.website, :target => "_blank" %>
