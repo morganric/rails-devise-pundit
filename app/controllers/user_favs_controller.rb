@@ -1,7 +1,10 @@
 class UserFavsController < ApplicationController
 
+	include LeafsHelper
+
 	after_action :fav_email, only: :create
 	after_action :fav_action, only: :create
+	after_action :fav_tweet, only: :create
 
 	def create
 		@user_fav = UserFav.create(user_fav_params)
@@ -18,7 +21,6 @@ class UserFavsController < ApplicationController
 	def destroy
 
 		@user_fav = UserFav.where(user_fav_params)
-		debugger
 		respond_to do |format|
 	      if @user_fav.first.destroy
 	        format.js { redirect_to :back, notice: 'Fav was successfully created.' }

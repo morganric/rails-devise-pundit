@@ -31,8 +31,11 @@ class ProfilesController < ApplicationController
       config.access_token        = @profile.user.twitter_token
       config.access_token_secret = @profile.user.twitter_secret
     end
-    @twitter = @client.user(@profile.twitter_handle)
 
+    if @profile.twitter_handle != nil &&  @profile.user.twitter_secret != nil
+      @twitter = @client.user(@profile.twitter_handle)
+    end
+    
   end
 
   # GET /profiles/new
