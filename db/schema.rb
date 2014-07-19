@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717132125) do
+
+ActiveRecord::Schema.define(version: 20140719094242) do
 
   create_table "activities", force: true do |t|
     t.string   "action"
@@ -173,6 +174,7 @@ ActiveRecord::Schema.define(version: 20140717132125) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.string   "twitter_handle"
   end
 
   add_index "profiles", ["slug"], name: "index_profiles_on_slug", unique: true
@@ -271,6 +273,8 @@ ActiveRecord::Schema.define(version: 20140717132125) do
     t.integer  "role"
     t.string   "provider"
     t.string   "uid"
+    t.string   "twitter_token"
+    t.string   "twitter_secret"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

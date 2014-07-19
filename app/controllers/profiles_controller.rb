@@ -28,8 +28,8 @@ class ProfilesController < ApplicationController
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = "GpD8bwv1j8e6R2NhsJ9xZAC4a"
       config.consumer_secret     = "ah2efRJhtvgBh1czICI7i8dGybVgnXUyIC4DU5lRGPt7iweaaL"
-      config.access_token        = "2550275443-NQjI6pJwJjzJOFopAvPCSHJmQ1E4ryYPHhlw1kE"
-      config.access_token_secret = "hgNHzXPiJ8Ato6fDPEUupv3YXTDQTW4CIqLzVrEoSRlOh"
+      config.access_token        = @profile.user.twitter_token
+      config.access_token_secret = @profile.user.twitter_secret
     end
     @twitter = client.user(@profile.twitter_handle)
   end
