@@ -117,7 +117,9 @@
           <li class="disabled"><a href="#audio" data-toggle="tab"><i class="glyphicon glyphicon-music" ></i>  Audio</a></li>
           <li class="disabled"><a href="#text" data-toggle="tab"><i class="glyphicon glyphicon-pencil" ></i>  Text</a></li>
           <li class="disabled"><a href="#video" data-toggle="tab"><i class="glyphicon glyphicon-film" ></i>  Video</a></li> -->
+          <% if @twitter != nil %>
           <li class=" pull-right"><a href="#tweets" data-toggle="tab"><i class="fa fa-twitter" ></i>  Tweets (10) </a></li>
+          <% end %>
           <li class=" pull-right"><a href="#favs" data-toggle="tab"><i class="glyphicon glyphicon-heart" ></i>  Favourites (<%= @profile.user.favourites.count %>)</a></li>
           <li class=" pull-right"><a href="#inbox" data-toggle="tab"><i class="glyphicon glyphicon-envelope" ></i>  Messages (<%= @conversations.count %>)</a></li>
       </ul>
@@ -186,6 +188,7 @@
         <%= render 'messages' %>
       </div>
       <div class="tweets tab-pane fade" id="tweets">
+      <% if @twitter != nil %>
         <ul>
           <% @client.user_timeline(@profile.twitter_handle, :count => 10).each do |tweet| %>
             <li class="clearfix well">
@@ -193,6 +196,7 @@
             </li>
           <% end %>
         </ul>
+      <% end %>
       </div>
       <div class="tab-pane fade" id="favs">
           <ul>
