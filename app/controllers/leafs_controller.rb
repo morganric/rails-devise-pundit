@@ -7,6 +7,7 @@ class LeafsController < ApplicationController
   after_action :comment_email, only: :comment
   after_action :comment_action, only: :comment
   after_action :upload_tweet, only: :create
+  after_action :comment_tweet, only: :comment
 
   include LeafsHelper
 

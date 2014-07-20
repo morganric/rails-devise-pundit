@@ -10,7 +10,9 @@
  *= require 'masonry/infinitescroll'
  *= require 'masonry/right-to-left'
  *= require 'masonry/transitions'
+ *= require font-awesome
 */
+@import "font-awesome";
 
 .facebook {
   margin: 0 auto;
@@ -128,3 +130,4 @@ height: 100%;
   margin: 0 auto;
   width:300px;
 }
+

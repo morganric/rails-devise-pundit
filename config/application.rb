@@ -27,6 +27,8 @@ module RailsDevisePundit
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+
     # Precompile additional assets
     config.assets.precompile += %w(darkly.js darkly.css darkly.js darkly.css)
 

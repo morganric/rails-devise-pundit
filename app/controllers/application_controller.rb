@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
 
   layout 'darkly'
+  require 'rails_autolink'
 
   include Pundit
   # Prevent CSRF attacks by raising an exception.

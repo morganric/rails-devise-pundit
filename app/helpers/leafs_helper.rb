@@ -63,6 +63,35 @@ module LeafsHelper
 		@client.update("Just uploaded #{@title} to @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
 	end
 
+	def comment_tweet
+
+	@leaf = Leaf.find(params[:leaf_id])
+	@user = current_user
+	@profile = @user.profile
+
+	if @user.provider = "twitter"
+		@client = Twitter::REST::Client.new do |config|
+	      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
+	      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
+	      config.access_token        = @profile.user.twitter_token
+	      config.access_token_secret = @profile.user.twitter_secret
+	    end
+	end
+
+		@title = truncate(@leaf.title, lenght: 70)
+
+		if @leaf.user.profile.twitter_handle != ""
+
+			@client.update("Just commented on #{@title} on @embedtree >> www.embedtree.com#{leaf_path(@leaf.id)} via @#{@leaf.user.profile.twitter_handle}")
+		
+		else
+
+			@client.update("Just commented on #{@title} on @embedtree >> www.embedtree.com#{leaf_path(@leaf.id)}")
+
+		end
+
+	end
+
 	def fav_tweet
 		@leaf = Leaf.find(params[:user_fav][:leaf_id])
 		@user = current_user
@@ -77,7 +106,15 @@ module LeafsHelper
 		    end
 		end
 
-		@title = truncate(@leaf.title, lenght: 80)
-		@client.update("Just favourited #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+		@title = truncate(@leaf.title, lenght: 60)
+
+		if @leaf.user.profile.twitter_handle != ""
+
+		@client.update("Just favourited #{@title} on @embedtree >> www.embedtree.com#{leaf_path(@leaf.id)} via @#{@leaf.user.profile.twitter_handle}")
+		else
+
+		@client.update("Just favourited #{@title} on @embedtree >> www.embedtree.com#{leaf_path(@leaf.id)}")
+
+		end
 	end
 end
