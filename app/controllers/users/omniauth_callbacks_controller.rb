@@ -19,7 +19,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		current_user.uid = auth.uid
 		current_user.twitter_token = auth.credentials.token
 	    current_user.twitter_secret = auth.credentials.secret
-	    debugger
 	    current_user.profile.twitter_handle = auth.extra.access_token.params[:screen_name]
 	    # You need to implement the method below in your model (e.g. app/models/user.rb)
 	    # @user = User.find_for_twitter_oauth(request.env["omniauth.auth"])
