@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   post '/facebook' => 'facebook#index', :as => 'facebook'
-  get '/facebook' => 'profiles#facebook', :as => 'facebook_get'
+  get '/facebook' => 'facebook#index', :as => 'facebook_get'
   get '/dashboard' => 'profiles#dashboard', :as => 'dashboard'
   post '/message' => 'profiles#message', :as => 'message'
   post '/comment' => 'leafs#comment', :as => 'comment'
