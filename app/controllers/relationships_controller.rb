@@ -32,7 +32,7 @@ class RelationshipsController < ApplicationController
       end
   end
 
-  if @followed.profile.twitter_handle != ""
+  if @followed.profile.twitter_handle != "" && @follower.profile.twitter_handle != ""
 
     @client.update("Just followed #{@followed.profile.display_name} (@#{@followed.profile.twitter_handle}) on @embedtree - www.embedtree.com/#{@followed.name} ")
   

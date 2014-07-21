@@ -2,7 +2,7 @@
 
 <div class="col-md-12">
     <h1><%= image_tag(@profile.image.url, :class => "img-circle", :width => '75px') if @profile.image.url  %>
-    <%=  @profile.display_name || @profile.user.name  %></h1>
+    <%=  link_to @profile.display_name || @profile.user.name, vanity_url_path(@profile.slug),  :target => "_blank"   %></h1>
 
   </div>
 </div>
