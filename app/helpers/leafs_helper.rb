@@ -108,7 +108,7 @@ module LeafsHelper
 
 		@title = truncate(@leaf.title, lenght: 60)
 
-		if @leaf.user.profile.twitter_handle != ""
+		if @leaf.user.profile.twitter_handle != "" || @leaf.user.profile.twitter_handle != nil
 
 		@client.update("Just favourited #{@title} on @embedtree >> www.embedtree.com#{leaf_path(@leaf.id)} via @#{@leaf.user.profile.twitter_handle}")
 		else

@@ -4,9 +4,6 @@ class ProfilesController < ApplicationController
 
   after_filter :allow_iframe
   after_action :message_action, only: :message
-
-  does_facebook
-
   
   # GET /profiles
   # GET /profiles.json
