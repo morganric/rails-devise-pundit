@@ -8,7 +8,7 @@ module LeafsHelper
 
 	def url_handler
 
-		embedly_api = Embedly::API.new :key => 'd30e91b2207a40469be014c739c2ddb3'
+		embedly_api = Embedly::API.new :key => '8d4c76144f8711e1b4764040d3dc5c07'
 		obj = embedly_api.oembed :url => @leaf.url
 
 		@leaf.views = 1
