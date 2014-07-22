@@ -3,7 +3,7 @@ class RelationshipsController < ApplicationController
 
   after_action :follow_email, only: :create
   after_action :follow_action, only: :create
-  after_action :follow_tweet, only: :create
+  # after_action :follow_tweet, only: :create
 
   def create
     @user = User.find(params[:relationship][:followed_id])
@@ -32,10 +32,15 @@ class RelationshipsController < ApplicationController
       end
   end
 
+  if @followed.profile.twitter_handle != "" && @follower.profile.twitter_handle 
+
+    @client.update("Just followed #{@followed.profile.display_name} (@#{@followed.profile.twitter_handle}) on @embedtree - www.embedtree.com/#{@followed.name} ")
+  
+  else
 
     @client.update("Just followed #{@followed.profile.display_name} on @embedtree - www.embedtree.com/#{@followed.name}")
 
-
+  end
 
   end
 
