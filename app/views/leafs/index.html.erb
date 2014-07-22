@@ -29,11 +29,11 @@
       <% @leafs.each do |leaf| %>
         <section class="clearfix well">
           <section class="col-md-2 pull-left">
-              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.profile.slug, :id => leaf.slug) %>
           </section> 
           <section class="col-md-7 pull-left">
             <h4>
-              <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+              <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.profile.slug, :id => leaf.slug) %>
               <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %>
               <br/>
                on <%= leaf.created_at.to_formatted_s(:short)  %>
@@ -123,7 +123,7 @@
        <div class="panel-body">
         <% @featured.each do |leaf| %>
           <h4>
-            <%= link_to truncate(leaf.title, length: 25), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+            <%= link_to truncate(leaf.title, length: 25), vanity_leaf_url_path(:user_id => leaf.user.profile.slug, :id => leaf.slug) %>
             <small><br/>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %></small>
           </h4>
         <% end %>
