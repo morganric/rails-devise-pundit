@@ -1,8 +1,24 @@
 <h1>EmbedTree Apps</h1>
 <hr/>
-<button id="fb-button" class="btn btn-info">Connect Facebook Page Tab</button>
-<br/><br/>
-<%= button_to "Connect with Twitter", user_omniauth_authorize_path(:twitter), :class => "btn btn-info" %>
+
+<ul>
+  <li class="well" >
+  <button id="fb-button" class="btn btn-info"><i class="fa fa-facebook" ></i> Connect Facebook Page Tab</button>
+  </li>
+
+  <li class="well">
+  <%= button_to  user_omniauth_authorize_path(:facebook), :class => "btn btn-info" do  %>
+    <i class='fa fa-facebook'></i> Connect With Facebook
+  <% end %>
+  </li>
+
+  <li class="well">
+  <%= button_to  user_omniauth_authorize_path(:twitter), :class => "btn btn-info" do  %>
+    <i class='fa fa-twitter'></i> Connect With Twitter
+  <% end %>
+  </li>
+
+</ul>
 
 <script>
   window.fbAsyncInit = function() {

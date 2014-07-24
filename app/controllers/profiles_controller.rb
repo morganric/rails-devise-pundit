@@ -33,9 +33,14 @@ class ProfilesController < ApplicationController
     end
 
     if @profile.twitter_handle != nil &&  @profile.user.twitter_secret != nil
-      @twitter = @client.user(@profile.twitter_handle)
+      # @twitter = @client.user(@profile.twitter_handle)
     end
+
+    @graph = Koala::Facebook::API.new(@profile.user.fb_token)
+    @me = @graph.get_object("me")
+    @friends = @graph.get_connections("me", "friends")
     
+
   end
 
   # GET /profiles/new

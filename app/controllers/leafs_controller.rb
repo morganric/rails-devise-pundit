@@ -7,6 +7,7 @@ class LeafsController < ApplicationController
   after_action :comment_email, only: :comment
   after_action :comment_action, only: :comment
   after_action :upload_tweet, only: :create
+  after_action :upload_fb, only: :create
 
   include LeafsHelper
 
@@ -30,8 +31,7 @@ class LeafsController < ApplicationController
       @links = @leafs.where(:type => "link").page(params[:links])
 
     @featured = @leafs.where(:featured => true).limit(6)
-      
-
+    @tags = Leaf.tag_counts_on(:tags)
   end
 
   def comment

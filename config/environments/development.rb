@@ -8,7 +8,7 @@ ENV["OMNIAUTH_PROVIDER_SECRET"] = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3
 ENV["FACEBOOK_APP_ID"] = "1440239169528450"
 ENV["FACEBOOK_APP_SECRET"] = "884240b8d9bf9d868a1bd0f0465c90bf"
 
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+# OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.

@@ -46,6 +46,7 @@ gem 'mailboxer'
 gem 'acts_as_commentable_with_threading'
 gem "awesome_nested_set", '~> 3.0.0.rc.3'
 gem "twitter"
+gem "koala", "~> 1.10.0rc"
 
 group :production do
   gem 'pg'
