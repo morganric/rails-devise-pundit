@@ -48,6 +48,7 @@ gem "awesome_nested_set", '~> 3.0.0.rc.3'
 gem "twitter"
 gem "rails_autolink"
 gem "font-awesome-rails"
+gem "koala", "~> 1.10.0rc"
 
 group :production do
   gem 'pg'

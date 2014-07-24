@@ -1,14 +1,21 @@
 <h1>EmbedTree Apps</h1>
 <hr/>
+
 <ul>
   <li class="well" >
-  <button id="fb-button" class="btn btn-info"><i class="fa fa-facebook" ></i> Connect Facebook Page Tab</button>
+    <button id="fb-button" class="btn btn-info"><i class="fa fa-facebook" ></i> Connect Facebook Page Tab</button>
   </li>
 
   <li class="well">
-  <%= button_to  user_omniauth_authorize_path(:twitter), :class => "btn btn-info" do  %>
-    <i class='fa fa-twitter'></i> Connect With Twitter
-  <% end %>
+    <%= button_to  user_omniauth_authorize_path(:facebook), :class => "btn btn-info" do  %>
+      <i class='fa fa-facebook'></i> Connect With Facebook
+    <% end %>
+  </li>
+
+  <li class="well">
+    <%= button_to  user_omniauth_authorize_path(:twitter), :class => "btn btn-info" do  %>
+      <i class='fa fa-twitter'></i> Connect With Twitter
+    <% end %>
   </li>
 
 </ul>

@@ -1,6 +1,7 @@
 module LeafsHelper
 
 	include ActionView::Helpers::TextHelper
+	include ActsAsTaggableOn::TagsHelper
 
 	require 'embedly'
 	require 'json'
@@ -41,9 +42,6 @@ module LeafsHelper
 
 	end
 
-	
-
-	
 
 	def upload_tweet
 
@@ -62,6 +60,7 @@ module LeafsHelper
 		@title = truncate(@leaf.title, lenght: 80)
 		@client.update("Just uploaded #{@title} to @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
 	end
+
 
 	def comment_tweet
 
@@ -91,6 +90,22 @@ module LeafsHelper
 		end
 
 	end
+
+
+	def upload_fb
+
+		@user = @leaf.user
+		@profile = @user.profile
+
+		if @user.fb_token != nil
+			@graph = Koala::Facebook::API.new(@profile.user.fb_token)
+		end
+
+		@title = truncate(@leaf.title, lenght: 80)
+		@graph.put_connections("me", "feed", :message => "Just uploaded #{@title} to @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+	
+	end
+
 
 	def fav_tweet
 		@leaf = Leaf.find(params[:user_fav][:leaf_id])
