@@ -37,10 +37,6 @@ class ProfilesController < ApplicationController
     else
       @twitter = nil
     end
-
-    @graph = Koala::Facebook::API.new(@profile.user.fb_token)
-    @me = @graph.get_object("me")
-    @friends = @graph.get_connections("me", "friends")
     
 
   end
