@@ -52,11 +52,25 @@
     </p>
     </section>
 
-    <section id="comments">
-    <%= render :partial => 'comments' %>
+    <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+      <li class="active"><a href="#comments" data-toggle="tab">Comments</a></li>
+      <li><a href="#tweets" data-toggle="tab">Tweets (<%= @results.count %>)</a></li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade  in" id="tweets">
+          <ul>
+            <% @results.first(10).each do |tweet| %>
+              <li class="clearfix well">
+                  <%= auto_link(tweet.text) %>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+      <div class="tab-pane fade active in" id="comments">
+        <%= render :partial => 'comments' %>
+      </div>
+    </div>
 
-
-    </section>
         
   </div>
   <div class="col-md-4 pull-right" id="sidebar">

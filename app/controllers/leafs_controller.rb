@@ -60,6 +60,14 @@ class LeafsController < ApplicationController
     @leaf.save
 
      @comments = @leaf.comment_threads
+
+     @client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
+      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
+    end
+
+    @results = @client.search("#{@leaf.url}")
+
   end
 
   def admin
