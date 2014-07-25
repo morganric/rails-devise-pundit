@@ -140,6 +140,7 @@ class LeafsController < ApplicationController
       @leafs = Leaf.where(:live => true) 
     end
     @leafs = @leafs.tagged_with(params[:id]).page(params[:all])
+    @new_leafs = Leaf.where(:live => true).order('created_at DESC').page(params[:new_leafs])
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
     @videos = @leafs.where(:type => "video")
