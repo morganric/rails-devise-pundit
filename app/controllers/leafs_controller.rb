@@ -227,10 +227,7 @@ class LeafsController < ApplicationController
       UserMailer.upload_email(current_user, follower, @leaf).deliver
     end
 
-    @admin = User.where(:role => 2).first
     @admins = User.where(:role => 2)
-    
-    UserMailer.upload_email(current_user, @admin, @leaf).deliver
 
     @admins.each do |admin|
       UserMailer.admin_email(current_user, admin, @leaf).deliver
