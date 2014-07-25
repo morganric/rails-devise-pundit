@@ -25,6 +25,7 @@ class LeafsController < ApplicationController
     end
 
       @leafs = @leafs.where('created_at > ?', @ago ).order("views DESC").page(params[:all])
+      @new_leafs = Leaf.where(:live => true).order('created_at DESC').page(params[:new_leafs])
       @photos = @leafs.where(:type => "photo").page(params[:photos])
       @texts = @leafs.where(:type => "text" ).page(params[:texts])
       @videos = @leafs.where(:type => "video").page(params[:videos])
@@ -224,6 +225,15 @@ class LeafsController < ApplicationController
     @followers = current_user.followers
     @followers.each do |follower|
       UserMailer.upload_email(current_user, follower, @leaf).deliver
+    end
+
+    @admin = User.where(:role => 2).first
+    @admins = User.where(:role => 2)
+    
+    UserMailer.upload_email(current_user, @admin, @leaf).deliver
+
+    @admins.each do |admin|
+      UserMailer.admin_email(current_user, admin, @leaf).deliver
     end
   end
 

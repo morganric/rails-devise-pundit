@@ -45,20 +45,21 @@ module LeafsHelper
 
 	def upload_tweet
 
-	@user = @leaf.user
-	@profile = @user.profile
+		@user = @leaf.user
+		@profile = @user.profile
 
-	if @user.provider = "twitter"
-		@client = Twitter::REST::Client.new do |config|
-	      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
-	      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
-	      config.access_token        = @profile.user.twitter_token
-	      config.access_token_secret = @profile.user.twitter_secret
-	    end
-	end
+		if @user.twitter_token != nil
+			@client = Twitter::REST::Client.new do |config|
+		      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
+		      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
+		      config.access_token        = @profile.user.twitter_token
+		      config.access_token_secret = @profile.user.twitter_secret
+		    end
 
-		@title = truncate(@leaf.title, lenght: 80)
-		@client.update("Just uploaded #{@title} to @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+		    @title = truncate(@leaf.title, lenght: 80)
+			@client.update("Just embeded #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+		end
+	
 	end
 
 
@@ -99,11 +100,10 @@ module LeafsHelper
 
 		if @user.fb_token != nil
 			@graph = Koala::Facebook::API.new(@profile.user.fb_token)
+			@title = truncate(@leaf.title, lenght: 80)
+			@graph.put_connections("me", "feed", :message => "Just embedded #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
 		end
 
-		@title = truncate(@leaf.title, lenght: 80)
-		@graph.put_connections("me", "feed", :message => "Just uploaded #{@title} to @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
-	
 	end
 
 

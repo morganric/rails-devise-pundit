@@ -32,6 +32,15 @@ class UserMailer < ActionMailer::Base
     mail(to: @follower.email, subject: 'New EmbedTree Upload')
   end 
 
+  def admin_email(uploader, admin, leaf)
+    @uploader = uploader
+    @leaf = leaf
+    @admin = admin
+    @title = leaf.title
+    @url  = vanity_leaf_url_path(:id => @leaf.slug, :user_id => leaf.user.profile.slug)
+    mail(to: @admin.email, subject: 'New EmbedTree Upload (Admin)')
+  end 
+
   def category_email(user, category)
     @user = user
     @category = category
