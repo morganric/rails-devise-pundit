@@ -1,6 +1,10 @@
 <% meta_keywords @leaf.tag_list %>
 <% meta_description @leaf.copy %>
 
+<% content_for :head do %>
+  <%= render 'twitter_meta' %>
+<% end %>
+
 <% set_meta_tags :og => {
   :title    => @leaf.title,
   :type     => @leaf.type,
@@ -88,7 +92,7 @@
     <br/>
 
     <ul class="nav social_buttons clearfix">
-        <li><%= tweet_button( :text => truncate(@leaf.title, lenght: 100 ), via: "embedtree", :count => "horizontal" ) %></li>
+        <li><%= tweet_button( url: "http://embedtree.com/leafs/#{@leaf.id}", :text => truncate(@leaf.title, length: 120 ), via: "embedtree", :count => "horizontal" ) %></li>
         <li><%= like_button(1440239169528450) %></li>
         <li><%= pinit_button %></li>
         <li><%= google_plus_button %></li>
