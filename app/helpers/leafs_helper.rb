@@ -102,6 +102,12 @@ module LeafsHelper
 			@graph = Koala::Facebook::API.new(@profile.user.fb_token)
 			@title = truncate(@leaf.title, lenght: 80)
 			@graph.put_connections("me", "feed", :message => "Just embedded #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+		
+			@pages = FacebookPage.where(:user_id => @user.id)
+
+			if @pages != []
+				@graph.put_connections(@pages.first.fb_page_id, "feed", :message => "Just embedded #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+			end
 		end
 
 	end

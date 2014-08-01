@@ -14,6 +14,10 @@
 //= require google_dfp
 
 $(document).ready(function() {
+	$('.fav').on('click', function(){
+		location.reload();
+	});
+
 	$('.alert, .notice').fadeOut(3000);
 
 	$('input#post').on('click', function(){
