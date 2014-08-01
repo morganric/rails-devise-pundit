@@ -5,13 +5,6 @@
   <%= render 'twitter_meta' %>
 <% end %>
 
-<% set_meta_tags :og => {
-  :title    => @leaf.title,
-  :type     => @leaf.type,
-  :url      => leaf_url(@leaf),
-  :image    => @leaf.image.url()
-  } %>
-
 <div class="clearfix row">
 
   <div class="col-md-8">
