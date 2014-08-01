@@ -24,7 +24,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   
      # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
-      "/assets/default.png"
+      # "/assets/default.png"
+      "http://res.cloudinary.com/familio/image/upload/c_fit,h_100,w_100/v1403796322/yazc0xihpfg721qawu6t.jpg"
 
   end
 
