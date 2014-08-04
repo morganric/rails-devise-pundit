@@ -1,4 +1,4 @@
-class LeafsController < ApplicationController
+  class LeafsController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index, :tag, :featured, :media, :search]
   before_action :set_leaf, only: [:show, :edit, :update, :destroy, :upload_tweet]
 
@@ -15,7 +15,7 @@ class LeafsController < ApplicationController
   # GET /leafs
   # GET /leafs.json
   def index
-    @ago =  Time.now-28.days 
+    @ago =  Time.now-14.days 
     
 
     if current_user && current_user.admin?
