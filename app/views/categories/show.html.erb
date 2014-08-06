@@ -1,6 +1,9 @@
 
 <% if current_user && current_user.admin? %>
-	<%= link_to 'Edit', edit_category_path(@category), class: "pull-right" %>
+	<%= link_to 'Edit', edit_category_path(@category), class: "pull-right btn btn-default" %>
+	<%= button_to  user_omniauth_authorize_path(:twitter, :category => @category), :class => "btn btn-mini	 btn-info pull-right" do  %>
+      <i class='fa fa-twitter'></i> Connect With Twitter
+    <% end %>
 <% end %>
 
 <h1>
@@ -21,4 +24,3 @@
 		</div>
 	<% end %>
 </div>
-

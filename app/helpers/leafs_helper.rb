@@ -59,6 +59,30 @@ module LeafsHelper
 		    @title = truncate(@leaf.title, lenght: 80)
 			@client.update("Just embeded #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
 		end
+
+		@user_categories = UserCategory.where(:user_id => @user.id)
+		@categories = []
+		@user_categories.each do |cat|
+			@categories << Category.where(:id => cat.category_id)
+		end
+
+		@categories.each do |cat|
+
+			if cat[0].twitter_token != nil
+				@client = Twitter::REST::Client.new do |config|
+			      config.consumer_key        = "sUedRjJ0a8oHJJfHcnO1x5xBV"
+			      config.consumer_secret     = "HikKRSrM2gNNDLRakwCGW1tYj3RkGrErISgE0HT8JqRr3pHVmR"
+			      config.access_token        = cat[0].twitter_token
+			      config.access_token_secret = cat[0].twitter_secret
+			    end
+
+			    @title = truncate(@leaf.title, lenght: 80)
+			    @twitter = "@#{@profile.twitter_handle}"
+			    @client.update(". #{@twitter} Just embeded #{@title} on @embedtree - www.embedtree.com#{leaf_path(@leaf.id)}")
+			else
+				puts "no tweet"
+			end
+		end
 	
 	end
 

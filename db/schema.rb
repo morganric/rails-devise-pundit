@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723223427) do
+ActiveRecord::Schema.define(version: 20140806124448) do
 
   create_table "activities", force: true do |t|
     t.string   "action"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(version: 20140723223427) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "twitter_token"
+    t.string   "twitter_secret"
+    t.string   "twitter_handle"
   end
 
   create_table "clicks", force: true do |t|
