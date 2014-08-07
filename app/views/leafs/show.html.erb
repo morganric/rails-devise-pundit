@@ -87,14 +87,14 @@
      <%= link_to raw( " #{truncate(@leaf.url, :length => 40)} <i class='glyphicon glyphicon-share'></i>"), @leaf.url, :target => "_blank", :class => "click"  %> 
     <br/>
     <br/>
-
-    <ul class="nav social_buttons clearfix">
+    <div class="well">
+    <ul class="nav social_buttons clearfix ">
         <li><%= tweet_button( url: "http://embedtree.com/leafs/#{@leaf.id}", :text => truncate(@leaf.title, length: 120 ), via: "embedtree", :count => "horizontal" ) %></li>
         <li><%= like_button(1440239169528450, url: "http://embedtree.com/leafs/#{@leaf.id}") %></li>
         <li><%= pinit_button %></li>
         <li><%= google_plus_button %></li>
     </ul>
-    <br/>
+    </div>
     <% if current_user %>
       <% if UserFav.where(:user_id => current_user.id, :leaf_id => @leaf.id).exists? %>
           <%= link_to raw("<i class='glyphicon glyphicon-heart-empty'></i>  Un-Favourite"), delete_user_favs_path(:user_fav => {:leaf_id => @leaf.id,:user_id => current_user.id}), :remote => true, class: "btn fav btn-default", :method => :delete %>

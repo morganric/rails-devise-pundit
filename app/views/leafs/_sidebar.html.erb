@@ -48,9 +48,15 @@
     <% end %>
   </div>
     <br/>
-   <label>Short URL: </label> &nbsp;
-    <input value="<%= leaf_url(@leaf.id) %>" cols="60" width="200px">
+  <div class="well"
+   <label>Short Link : </label> &nbsp;
+    <input value="<%= leaf_url(@leaf.id) %>" cols="60" width="400px">
       </input>
+      <br/><br/>
+   <label>Embed Code : </label> &nbsp;
+    <input value="<%= @leaf.embed_code %>" cols="120" rows="20" width="400px">
+      </input>
+  </div>
   <div class="clearfix" >
     <div id="mpu" class="pull-left ads">
       <%= dfp_tag :MPU %>

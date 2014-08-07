@@ -158,7 +158,7 @@
     else
       @leafs = Leaf.where(:live => true) 
     end
-    @leafs = @leafs.where(:type => params[:type]).page(params[:all])
+    @leafs = @leafs.where(:type => params[:type]).order("created_at DESC").page(params[:all])
     @new_leafs = @leafs.order('created_at DESC').page(params[:new_leafs])
     @photos = @leafs.where(:type => "photo")
     @texts = @leafs.where(:type => "text" )
