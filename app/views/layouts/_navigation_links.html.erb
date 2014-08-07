@@ -1,19 +1,26 @@
 <%# add navigation links to this file %>
 <li>
-	<%= link_to 'About', page_path('about') %>
+	<a href="<%= upload_path %>" ><i class="glyphicon glyphicon-cloud-upload"></i> Upload</a>
 </li>
-<li>
-	<%= link_to 'Featured', featured_path %>
+<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i> More
+			<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+			<li>
+				<%= link_to 'About', page_path('about') %>
+			</li>
+			<li>
+				<%= link_to 'Featured', featured_path %>
+			</li>
+			<li>
+				<%= link_to 'Categories', categories_path %>
+			</li>
+			</ul>
 </li>
-<li>
-	<%#= link_to 'Categories', categories_path %>
-</li>
-<li>
-	<%= link_to 'Upload', upload_path %>
-</li>
+
 <% if user_signed_in? %>
 <li class="dropdown">
-	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.profile.display_name %> <b class="caret"></b></a>
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag(current_user.profile.image.url(:thumb), :class => "img-circle", width: "22px") %> <%= current_user.profile.display_name %> <b class="caret"></b></a>
           <ul class="dropdown-menu">
           <li><%= link_to 'Dashboard', dashboard_path %></li>
           <li><%= link_to 'Profile', vanity_url_path(current_user.name) %></li>
@@ -24,9 +31,15 @@
   </ul>
 <li>
 <% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-  <li><%#= link_to 'Facebook', user_omniauth_authorize_path(:facebook) %></li>
+<li class="dropdown">
+	<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Join
+	<b class="caret"></b></a>
+	<ul class="dropdown-menu">
+		  <li><%= link_to 'Sign in', new_user_session_path %></li>
+		  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+		  <li><%#= link_to 'Facebook', user_omniauth_authorize_path(:facebook) %></li>
+  </ul>
+</li>
 <% end %>
 <% if user_signed_in? %>
   <% if current_user.admin? %>

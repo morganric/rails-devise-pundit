@@ -4,8 +4,8 @@
   <div class="form-inputs">
     <%= f.hidden_field :title %>
     <%= f.hidden_field :copy  %>
-    <%= f.input :url, :input_html => {:style=> 'width: 500px'}, :placeholder => "http://..." %>
-    <%= f.label "Enter a link to your content here." %>
+    <%= f.input :url, :input_html => {:style=> 'width: 700px; height: 50px; border-radius: 10px; border: 4px solid;'}, :placeholder => "http://www...", label: false %>
+    <%= f.label "Enter a link to your content above" %>
     <%= f.hidden_field :image %>
     <%= f.hidden_field :via_url, :value => true %>
     <%= f.hidden_field :live, :value => true %>
