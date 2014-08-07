@@ -25,7 +25,7 @@ module LeafsHelper
 			@leaf.type = "link"
 		end
 
-		if obj[0].provider_name === "Soundcloud" || obj[0].provider_name === "Spotify" || obj[0].provider_name === "Mixcloud"
+		if obj[0].provider_name === "Soundcloud" || obj[0].provider_name === "Spotify" || obj[0].provider_name === "Mixcloud" || obj[0].provider_name === "BandCamp"
 			@leaf.type = "audio"
 		end
 

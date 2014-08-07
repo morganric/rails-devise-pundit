@@ -10,7 +10,6 @@
     <%= f.input :plays, as: :hidden%>
     <%= f.input :views, as: :hidden %>
     <%= f.input :user_id, as: :hidden %>
-    <%= f.input :type, as: :hidden %>
   </div>
   </br/>
   <div class="field">
@@ -19,6 +18,7 @@
   </div>
   <% if current_user.admin? %>
     <hr/>
+    <%= f.input :type %>
     <%= f.input :live %>
     <%= f.input :featured %>
   <% end %>
