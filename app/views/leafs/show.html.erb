@@ -14,7 +14,11 @@
       </div>
        <h1>
           <%= link_to @leaf.title, @leaf.url, :target => "_blank", :class => "click" %><br/>
-        <small>via <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %></small>
+        <small>via <%= link_to @leaf.user.profile.display_name, vanity_url_path(@leaf.user.profile) %>
+        <% if @leaf.featured == true %>
+        <a href="<%= featured_path %>" ><span class="label label-success pull-right"><i class="glyphicon glyphicon-star"></i> Featured</span></a>
+        <% end %>
+        </small>
         </h1>
 
       <% if @leaf.via_url && @leaf.embed_code != nil %>
