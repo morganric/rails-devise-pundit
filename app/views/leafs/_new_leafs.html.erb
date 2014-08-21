@@ -1,12 +1,12 @@
 <% @new_leafs.each do |leaf| %>
         <section class="clearfix well">
           <span class="col-md-2 pull-left">
-              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
+              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.profile.slug, :id => leaf.slug) %>
           </span> 
           <span class="col-md-8 pull-left">
             <h4>
-              <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.name, :id => leaf.slug) %>
-              <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.name) %><br/>
+              <%= link_to leaf.title, vanity_leaf_url_path(:user_id => leaf.user.profile.slug, :id => leaf.slug) %>
+              <small>via <%= link_to leaf.user.profile.display_name, vanity_url_path(leaf.user.profile.slug) %><br/>
                on <%= leaf.created_at.to_formatted_s(:short)  %></small>
             </h4>
             <p class="">
