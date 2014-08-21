@@ -33,7 +33,7 @@
       <% @leafs.each do |leaf| %>
         <section class="clearfix well">
           <section class="col-md-2 pull-left">
-              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.profile.slug, :id => leaf.slug) %>
+              <%= link_to image_tag(leaf.image.url(:small), class: "img-rounded"), vanity_leaf_url_path(:user_id => leaf.user.profile.slug.downcase, :id => leaf.slug) %>
           </section> 
           <section class="col-md-7 pull-left">
             <h4>
